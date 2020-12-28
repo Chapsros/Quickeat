@@ -9,8 +9,8 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
     return;
 }
 
-require dirname(__DIR__, 3).'/vendor/autoload.php';
-require __DIR__.'/Container4w79ZRo/srcApp_KernelDevDebugContainer.php';
+require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
+require __DIR__.'/ContainerDatl8xe/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -24,6 +24,7 @@ $classes[] = 'Doctrine\Bundle\DoctrineBundle\DoctrineBundle';
 $classes[] = 'Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle';
 $classes[] = 'Symfony\Bundle\SecurityBundle\SecurityBundle';
 $classes[] = 'Twig\Extra\TwigExtraBundle\TwigExtraBundle';
+$classes[] = 'Symfony\Bundle\WebServerBundle\WebServerBundle';
 $classes[] = 'Symfony\Component\HttpClient\TraceableHttpClient';
 $classes[] = 'Symfony\Contracts\HttpClient\HttpClientInterface';
 $classes[] = 'Symfony\Component\HttpClient\HttpClient';
@@ -32,6 +33,11 @@ $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\EventListener\ResolveControllerNameSubscriber';
 $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
+$classes[] = 'App\Repository\CommandeRepository';
+$classes[] = 'App\Repository\LocalisationRepository';
+$classes[] = 'App\Repository\PlatRepository';
+$classes[] = 'App\Repository\RestaurantRepository';
+$classes[] = 'App\Repository\UserRepository';
 $classes[] = 'Doctrine\DBAL\Tools\Console\Command\RunSqlCommand';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Dbal\ManagerRegistryAwareConnectionProvider';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Registry';
@@ -479,5 +485,9 @@ $classes[] = 'Symfony\Bundle\WebProfilerBundle\Controller\RouterController';
 $classes[] = 'Symfony\Bundle\WebProfilerBundle\Csp\ContentSecurityPolicyHandler';
 $classes[] = 'Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator';
 $classes[] = 'Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener';
+$classes[] = 'Symfony\Bundle\WebServerBundle\Command\ServerRunCommand';
+$classes[] = 'Symfony\Bundle\WebServerBundle\Command\ServerStartCommand';
+$classes[] = 'Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand';
+$classes[] = 'Symfony\Bundle\WebServerBundle\Command\ServerStopCommand';
 
 Preloader::preload($classes);

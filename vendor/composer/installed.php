@@ -1,16 +1,25 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'v4.4.99',
-    'version' => '4.4.99.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
-    'name' => 'symfony/website-skeleton',
+    'reference' => '1dd74efdd5cbcc2a353ee07d6f56b490b32d42b2',
+    'name' => '__root__',
   ),
   'versions' => 
   array (
+    '__root__' => 
+    array (
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1dd74efdd5cbcc2a353ee07d6f56b490b32d42b2',
+    ),
     'composer/package-versions-deprecated' => 
     array (
       'pretty_version' => '1.11.99.1',
@@ -348,8 +357,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache-implementation' => 
@@ -1014,14 +1023,14 @@
       ),
       'reference' => 'cd980f0df4ae7696d18fd908503fc61ae67ac48d',
     ),
-    'symfony/website-skeleton' => 
+    'symfony/web-server-bundle' => 
     array (
-      'pretty_version' => 'v4.4.99',
-      'version' => '4.4.99.0',
+      'pretty_version' => 'v4.4.18',
+      'version' => '4.4.18.0',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'd1eb905afca7d4957420c4b6809e2275d3e5e85d',
     ),
     'symfony/yaml' => 
     array (
