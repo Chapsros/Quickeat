@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '1dd74efdd5cbcc2a353ee07d6f56b490b32d42b2',
+    'reference' => '1700be8f54cb985a61c16e8a50f78d917f69d592',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '1dd74efdd5cbcc2a353ee07d6f56b490b32d42b2',
+      'reference' => '1700be8f54cb985a61c16e8a50f78d917f69d592',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -65,6 +65,15 @@
       ),
       'reference' => '9f3e3f3cc5399604c0325d5ffa92609d694d950d',
     ),
+    'doctrine/data-fixtures' => 
+    array (
+      'pretty_version' => '1.4.4',
+      'version' => '1.4.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '16a03fadb5473f49aad70384002dfd5012fe680e',
+    ),
     'doctrine/dbal' => 
     array (
       'pretty_version' => '2.12.1',
@@ -82,6 +91,15 @@
       array (
       ),
       'reference' => '044d33eeffdb236d5013b6b4af99f87519e10751',
+    ),
+    'doctrine/doctrine-fixtures-bundle' => 
+    array (
+      'pretty_version' => '3.4.0',
+      'version' => '3.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '870189619a7770f468ffb0b80925302e065a3b34',
     ),
     'doctrine/doctrine-migrations-bundle' => 
     array (

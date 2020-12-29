@@ -44,10 +44,16 @@ class Restaurant
      */
     private $localisation;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="restaurant")
+     */
+    private $pictures;
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
         $this->plats = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,6 +153,36 @@ class Restaurant
     public function setLocalisation(?localisation $localisation): self
     {
         $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Picture[]
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Picture $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setRestaurant($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Picture $picture): self
+    {
+        if ($this->pictures->removeElement($picture)) {
+            // set the owning side to null (unless already changed)
+            if ($picture->getRestaurant() === $this) {
+                $picture->setRestaurant(null);
+            }
+        }
 
         return $this;
     }

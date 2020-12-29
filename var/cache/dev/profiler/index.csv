@@ -100,3 +100,10 @@ cfe18d,127.0.0.1,GET,http://127.0.0.1:8000/css/styles.css,1609166632,88c891,404
 421d3f,127.0.0.1,GET,http://127.0.0.1:8000/index,1609166642,,200
 0694ca,127.0.0.1,GET,http://127.0.0.1:8000/css/styles.css,1609166642,49b91e,404
 49b91e,127.0.0.1,GET,http://127.0.0.1:8000/css/styles.css,1609166642,,404
+69e69a,127.0.0.1,GET,http://localhost:8000/,1609247809,,404
+cf8e13,127.0.0.1,GET,http://localhost:8000/favicon.ico,1609247822,04307d,404
+04307d,127.0.0.1,GET,http://localhost:8000/favicon.ico,1609247822,,404
+0e634a,127.0.0.1,GET,http://localhost:8000/,1609247870,,404
+91f6c4,127.0.0.1,GET,http://localhost:8000/index,1609247883,,200
+8c4499,127.0.0.1,GET,http://localhost:8000/css/styles.css,1609247889,8235d9,404
+8235d9,127.0.0.1,GET,http://localhost:8000/css/styles.css,1609247889,,404

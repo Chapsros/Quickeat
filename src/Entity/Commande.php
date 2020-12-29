@@ -34,6 +34,11 @@ class Commande
      */
     private $plats;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $done;
+
     public function __construct()
     {
         $this->plats = new ArrayCollection();
@@ -94,6 +99,18 @@ class Commande
                 $plat->setCommande(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDone(): ?bool
+    {
+        return $this->done;
+    }
+
+    public function setDone(bool $done): self
+    {
+        $this->done = $done;
 
         return $this;
     }
