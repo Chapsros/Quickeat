@@ -11,17 +11,35 @@
     </div>
 </div>
 
-<div class="container">
-<div class="card mb-5">
-    <div class="card-body">
-    <div class="container m-1 d-flex align-items-start justify-content-between">
-            <input type="text" placeholder="villes">
-            <input type="text" placeholder="types de plats">
-            <input type="text" placeholder="nom du restaurant">
-            <input type="text" placeholder="nom du plat">
-            <a href="#" class="btn btn-secondary mt-1">Soumettre</a>
+
+<div class="container card mb-5">
+<div class="card-body">
+
+<div class="row mt-2 mb-4">
+  <div class="col-sm-4">
+    <input type="text" class="form-control" id="Localisation" placeholder="Localisation">
+  </div>
+  <div class="col-sm-4">
+    <input type="text" class="form-control" id="Nom_du_restaurant" placeholder="Nom du restaurant">
+  </div>
+  <div class="col-sm-4">
+    <input type="text" class="form-control" id="Nom_du_plat" placeholder="Nom du plat">
+  </div>
+</div>
+<hr>
+<div class="mt-4 d-flex justify-content-between">
+<div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="fastfood" value="fastfood">
+        <label class="form-check-label" for="fastfood">Fastfood</label>
     </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="chinois" value="chinois">
+        <label class="form-check-label" for="chinois">Chinois</label>
     </div>
+</div>
+<a href="#" class="btn btn-primary">Soumettre</a>
+</div>
 </div>
 </div>
 
