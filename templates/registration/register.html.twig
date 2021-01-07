@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription | QuickEat{% endblock %}
+
+{% block body %}
+    <h1>S'inscrire</h1>
+
+    {# Render the Form #}
+    {{ form_start(register_form) }}
+    {{ form_row(register_form.firstname) }}
+    {{ form_row(register_form.name) }}
+    {{ form_row(register_form.email) }}
+    {{ form_row(register_form.password) }}
+
+    <button class="btn">S'inscrire</button>
+    {{ form_end(register_form) }}
+{% endblock %}
