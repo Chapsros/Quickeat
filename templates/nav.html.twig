@@ -1,22 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+<div class="container-fluid">
     <a class="navbar-brand" href="{{ path('index') }}">
         <img src="https://www.rts.ch/2019/11/12/12/50/10858955.image?w=1200&h=630" width="40" height="30" class="d-inline-block align-top" alt="image burger">
         QuickEat
     </a>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Bonjour User</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Inscription</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                <a class="nav-link" href="{{ path('index') }}">Accueil</a>
             </li>
         </ul>
+            <ul class="navbar-nav me-auto navbar-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Bonjour User</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inscription</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+            </ul>
     </div>
+</div>
 </nav>
