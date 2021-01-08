@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-warning">
     <a class="navbar-brand text-dark" href="{{ path('index') }}">
         <img src="https://www.rts.ch/2019/11/12/12/50/10858955.image?w=1200&h=630" width="40" height="30" class="d-inline-block align-top" alt="image burger">
@@ -19,7 +20,7 @@
                     <a class="nav-link text-dark">|</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="{{ path('account') }}">Mon compte</a>
+                    <a class="nav-link text-dark" href="{{ path('account', {'id': app.User.id}) }}">Mon compte</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="{{ path('app_logout') }}">Déconnexion</a>
@@ -35,3 +36,4 @@
             {% endif %}
         </ul>
 </nav>
+
