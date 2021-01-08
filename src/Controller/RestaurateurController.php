@@ -2,29 +2,33 @@
 
 namespace App\Controller;
 
+use App\Entity\Restaurant;
+use App\Form\NewRestaurateurType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class RestaurateurController extends AbstractController
 {
     /**
-     * @Route("/restaurateur", name="restaurateur")
+     * @Route("/new", name="new", methods={"GET","POST"})
      */
-    public function index(): Response
+    public function new(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->render('restaurateur/index.html.twig', [
-            'controller_name' => 'RestaurateurController',
-        ]);
-    }
+        $restaurant = new Restaurant();
+        $form = $this->createForm(NewRestaurateurType::class, $restaurant);
 
-    /**
-     * @Route("/new", name="new")
-     */
-    public function new(): Response
-    {
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+        $em->persist($restaurant);
+        $em->flush();
+        }
+
         return $this->render('restaurateur/new.html.twig', [
-            'controller_name' => 'RestaurateurController',
+            'new_restaurateur' => $form->createView(),
         ]);
     }
 }

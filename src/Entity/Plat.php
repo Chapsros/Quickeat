@@ -35,9 +35,9 @@ class Plat
     private $commande;
 
     /**
-     * @ORM\ManyToOne(targetEntity=restaurant::class, inversedBy="plats")
+     * @ORM\ManyToOne(targetEntity=Restaurant::class, inversedBy="plats")
      */
-    private $restaurant;
+    private $Restaurant;
 
     /**
      * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="plat")
@@ -90,14 +90,14 @@ class Plat
         return $this;
     }
 
-    public function getRestaurant(): ?restaurant
+    public function getRestaurant(): ?Restaurant
     {
-        return $this->restaurant;
+        return $this->Restaurant;
     }
 
-    public function setRestaurant(?restaurant $restaurant): self
+    public function setRestaurant(?Restaurant $Restaurant): self
     {
-        $this->restaurant = $restaurant;
+        $this->Restaurant = $Restaurant;
 
         return $this;
     }

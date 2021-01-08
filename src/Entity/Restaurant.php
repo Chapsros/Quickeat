@@ -30,22 +30,22 @@ class Restaurant
     private $categories;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="restaurant")
+     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="Restaurant")
      */
     private $commandes;
 
     /**
-     * @ORM\OneToMany(targetEntity=Plat::class, mappedBy="restaurant")
+     * @ORM\OneToMany(targetEntity=Plat::class, mappedBy="Restaurant")
      */
     private $plats;
 
     /**
-     * @ORM\OneToOne(targetEntity=localisation::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Localisation::class, cascade={"persist", "remove"})
      */
-    private $localisation;
+    private $Localisation;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="restaurant")
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="Restaurant")
      */
     private $pictures;
 
@@ -145,14 +145,14 @@ class Restaurant
         return $this;
     }
 
-    public function getLocalisation(): ?localisation
+    public function getLocalisation(): ?Localisation
     {
-        return $this->localisation;
+        return $this->Localisation;
     }
 
-    public function setLocalisation(?localisation $localisation): self
+    public function setLocalisation(?Localisation $Localisation): self
     {
-        $this->localisation = $localisation;
+        $this->Localisation = $Localisation;
 
         return $this;
     }

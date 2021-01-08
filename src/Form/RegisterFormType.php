@@ -23,7 +23,7 @@ class RegisterFormType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('sexe')
             ->add('phoneNumber', NumberType::class)
-            ->add('localisation')
+            ->add('Localisation')
         ;
     }
 

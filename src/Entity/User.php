@@ -58,14 +58,14 @@ class User implements UserInterface
     private $phoneNumber;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="User")
      */
     private $commandes;
 
     /**
-     * @ORM\OneToOne(targetEntity=localisation::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Localisation::class, cascade={"persist", "remove"})
      */
-    private $localisation;
+    private $Localisation;
 
     public function getId(): ?int
     {
@@ -170,20 +170,20 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getLocalisation(): ?localisation
+    public function getLocalisation(): ?Localisation
     {
-        return $this->localisation;
+        return $this->Localisation;
     }
 
-    public function setLocalisation(?localisation $localisation): self
+    public function setLocalisation(?Localisation $Localisation): self
     {
-        $this->localisation = $localisation;
+        $this->Localisation = $Localisation;
 
         return $this;
     }
 
     /**
-     * A visual identifier that represents this user.
+     * A visual identifier that represents this User.
      *
      * @see UserInterface
      */
@@ -198,7 +198,7 @@ class User implements UserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
+        // guarantee every User at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -239,7 +239,7 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
+        // If you store any temporary, sensitive data on the User, clear it here
         // $this->plainPassword = null;
     }
 }
