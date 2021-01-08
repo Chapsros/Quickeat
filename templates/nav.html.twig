@@ -1,29 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-<div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('index') }}">
+<nav class="navbar navbar-expand-sm navbar-dark bg-warning">
+    <a class="navbar-brand text-dark" href="{{ path('index') }}">
         <img src="https://www.rts.ch/2019/11/12/12/50/10858955.image?w=1200&h=630" width="40" height="30" class="d-inline-block align-top" alt="image burger">
         QuickEat
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ path('index') }}">Accueil</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Bonjour User</a>
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link active text-dark">Accueil</a>
             </li>
         </ul>
-            <ul class="navbar-nav me-auto navbar-right">
-                <li class="d-flex justify-content-end">
-                    <a class="nav-link active" href="{{ path('register') }}">Inscription</a>
+        <!-- Right -->
+        <ul class="navbar-nav ml-auto">
+
+            {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link text-dark">Bonjour</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+            {% endif %}
+            {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ path('register') }}">Inscription</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ path('app_login') }}">Connexion</a>
+            </li>
+            {% endif %}
+            {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{{ path('app_logout') }}">Déconnexion</a>
                 </li>
-            </ul>
-    </div>
-</div>
+            {% endif %}
+        </ul>
 </nav>
