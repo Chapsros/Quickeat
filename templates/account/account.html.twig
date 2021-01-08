@@ -9,8 +9,24 @@
     <h1>Mon compte</h1>
     </div>
     <hr>
-    <h5>Informations :</h5>
-    {{app.User.name }}
+    <h5 class="mb-4">Informations :</h5>
+    <div class="container">
+        <p>Prénom : {{app.User.name }}</p>
+        <p>Nom : {{app.User.firstname }}</p>
+        <p>Email : {{app.User.email }}</p>
+        <p>N° de l'adresse : {{app.User.localisation.number }}</p>
+        <p>Adresse : {{app.User.localisation.address }}</p>
+        <p>Ville : {{app.User.localisation.city }}</p>
+        <p>Code postal : {{app.User.localisation.Postalcode }}</p>
+        <p>Pays: {{app.User.localisation.country }}</p>
+    </div>
+    <hr>
+    <div class="row mb-5 mt-4">
+        <div class="col d-flex justify-content-end">
+            <a href="#" class="btn btn-primary mr-4">Modifier mes informations</a>
+            <a href="#" class="btn btn-primary">Modifier le mot de passe</a>
+        </div>
+    </div>
 
 
 </div>
