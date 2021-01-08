@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -32,6 +33,15 @@ class RegisterFormType extends AbstractType
                 'label' => 'Numéro de téléphone'
             ])
             ->add('localisation', LocalisationType::class)
+
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'Restaurateur' => 'ROLE_RESTAURATEUR',
+                ],
+                'expanded' => true,
+                'multiple' => true,
+                'label' => 'Rôles'
+            ])
         ;
     }
 
