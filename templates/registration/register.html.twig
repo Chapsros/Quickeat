@@ -3,15 +3,35 @@
 {% block title %}Inscription | QuickEat{% endblock %}
 
 {% block body %}
-    <h1>S'inscrire</h1>
-
-    {# Render the Form #}
-    {{ form_start(register_form) }}
-    {{ form_row(register_form.firstname) }}
-    {{ form_row(register_form.name) }}
-    {{ form_row(register_form.email) }}
-    {{ form_row(register_form.password) }}
-
-    <button class="btn">S'inscrire</button>
+    <div class="container mt-3 mb-3">
+        <form method="post">
+            <hr>
+            <div class="d-flex justify-content-center">
+                <h1>S'inscrire</h1>
+            </div>
+            <hr>
+            {{ form_start(register_form) }}
+            {{ form_row(register_form._token) }}
+            {{ form_row(register_form.name) }}
+            {{ form_row(register_form.firstname) }}
+            {{ form_row(register_form.email) }}
+            {{ form_row(register_form.password) }}
+            {{ form_row(register_form.phoneNumber) }}
+            <hr class="mt-3 ">
+            <h3 class="mb-3">Coordonnées :</h3>
+            {{ form_row(register_form.localisation.country) }}
+            {{ form_row(register_form.localisation.number) }}
+            {{ form_row(register_form.localisation.address) }}
+            {{ form_row(register_form.localisation.city) }}
+            {{ form_row(register_form.localisation.postalCode) }}
+            <div class="row mb-5 mt-5">
+                <div class="col d-flex justify-content-end">
+                    <button class="btn btn-primary">S'inscrire</button>
+                </div>
+            </div>
+        </form>
+    </div>
     {{ form_end(register_form) }}
+
+
 {% endblock %}

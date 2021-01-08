@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Localisation;
 use App\Entity\User;
 use App\Form\RegisterFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,7 +38,7 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [

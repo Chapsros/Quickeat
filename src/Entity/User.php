@@ -48,11 +48,6 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $sexe;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $phoneNumber;
@@ -66,6 +61,7 @@ class User implements UserInterface
      * @ORM\OneToOne(targetEntity=localisation::class, cascade={"persist", "remove"})
      */
     private $localisation;
+
 
     public function getId(): ?int
     {
@@ -112,18 +108,6 @@ class User implements UserInterface
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getSexe(): ?string
-    {
-        return $this->sexe;
-    }
-
-    public function setSexe(string $sexe): self
-    {
-        $this->sexe = $sexe;
 
         return $this;
     }
