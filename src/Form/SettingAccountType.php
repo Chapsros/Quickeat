@@ -16,10 +16,6 @@ class SettingAccountType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-
-            ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe'
-            ])
             ->add('phoneNumber', NumberType::class, [
                 'label' => 'Numéro de téléphone'
             ])

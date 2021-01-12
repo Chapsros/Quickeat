@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegisterFormType;
+use App\Form\SettingAccountType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,7 +33,7 @@ class AccountController extends AbstractController
      */
     public function edit(Request $request, User $register): Response
     {
-        $form = $this->createForm(RegisterFormType::class, $register);
+        $form = $this->createForm(SettingAccountType::class, $register);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
