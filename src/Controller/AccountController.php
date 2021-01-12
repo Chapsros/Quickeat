@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\RegisterFormType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,4 +23,28 @@ class AccountController extends AbstractController
             'user' => $userRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/{id}/edit", name="account_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param User $register
+     * @return Response
+     */
+    public function edit(Request $request, User $register): Response
+    {
+        $form = $this->createForm(RegisterFormType::class, $register);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render('account/a.html.twig', [
+            'user' => $register,
+            'formaccount' => $form->createView(),
+        ]);
+    }
+
 }
