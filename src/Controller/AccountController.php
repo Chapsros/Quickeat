@@ -41,7 +41,7 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('index');
         }
 
-        return $this->render('account/a.html.twig', [
+        return $this->render('account/settings_account.html.twig', [
             'user' => $register,
             'formaccount' => $form->createView(),
         ]);

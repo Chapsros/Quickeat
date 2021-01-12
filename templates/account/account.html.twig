@@ -21,16 +21,12 @@
         <p>Pays: {{app.User.localisation.country }}</p>
     </div>
     <hr>
-    {% for user in user %}
     <div class="row mb-5 mt-4">
         <div class="col d-flex justify-content-end">
-            <a href="{{ path('account_edit', {'id': app.User.id}) }}">edit</a>
-            <a href="#" class="btn btn-primary">Modifier le mot de passe</a>
+            <a href="{{ path('account_edit', {'id': app.User.id}) }}" class="btn btn-primary mr-2">Modifier</a>
+            <a href="#" class="btn btn-primary mr-2">Modifier mot de passe</a>
         </div>
     </div>
-    {% endfor %}
-
-
 
 </div>
 {% endblock %}
