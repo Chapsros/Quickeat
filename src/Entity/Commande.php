@@ -20,17 +20,17 @@ class Commande
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commandes")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Commandes")
      */
     private $User;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Restaurant::class, inversedBy="commandes")
+     * @ORM\ManyToOne(targetEntity=Restaurant::class, inversedBy="Commandes")
      */
     private $Restaurant;
 
     /**
-     * @ORM\OneToMany(targetEntity=Plat::class, mappedBy="commande")
+     * @ORM\OneToMany(targetEntity=Plat::class, mappedBy="Commande")
      */
     private $plats;
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\RestaurantRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,13 @@ class IndexController extends AbstractController
      * @param UserRepository $userRepository
      * @return Response
      */
-    public function index(UserRepository $userRepository): Response
+    public function index(RestaurantRepository $restaurantRepository): Response
     {
+        $restaurants = $restaurantRepository->findAll();
+
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
+            'restaurants' => $restaurants
         ]);
     }
 

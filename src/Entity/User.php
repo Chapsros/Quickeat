@@ -55,7 +55,7 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="User")
      */
-    private $commandes;
+    private $Commandes;
 
     /**
      * @ORM\OneToOne(targetEntity=Localisation::class, cascade={"persist", "remove"})
@@ -83,7 +83,7 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->commandes = new ArrayCollection();
+        $this->Commandes = new ArrayCollection();
     }
 
 
@@ -129,25 +129,25 @@ class User implements UserInterface
      */
     public function getCommandes(): Collection
     {
-        return $this->commandes;
+        return $this->Commandes;
     }
 
-    public function addCommande(Commande $commande): self
+    public function addCommande(Commande $Commande): self
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes[] = $commande;
-            $commande->setUser($this);
+        if (!$this->Commandes->contains($Commande)) {
+            $this->Commandes[] = $Commande;
+            $Commande->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): self
+    public function removeCommande(Commande $Commande): self
     {
-        if ($this->commandes->removeElement($commande)) {
+        if ($this->Commandes->removeElement($Commande)) {
             // set the owning side to null (unless already changed)
-            if ($commande->getUser() === $this) {
-                $commande->setUser(null);
+            if ($Commande->getUser() === $this) {
+                $Commande->setUser(null);
             }
         }
 

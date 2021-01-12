@@ -30,9 +30,9 @@ class Plat
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=commande::class, inversedBy="plats")
+     * @ORM\ManyToOne(targetEntity=Commande::class, inversedBy="plats")
      */
-    private $commande;
+    private $Commande;
 
     /**
      * @ORM\ManyToOne(targetEntity=Restaurant::class, inversedBy="plats")
@@ -78,14 +78,14 @@ class Plat
         return $this;
     }
 
-    public function getCommande(): ?commande
+    public function getCommande(): ?Commande
     {
-        return $this->commande;
+        return $this->Commande;
     }
 
-    public function setCommande(?commande $commande): self
+    public function setCommande(?Commande $Commande): self
     {
-        $this->commande = $commande;
+        $this->Commande = $Commande;
 
         return $this;
     }

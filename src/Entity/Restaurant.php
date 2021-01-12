@@ -32,7 +32,7 @@ class Restaurant
     /**
      * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="Restaurant")
      */
-    private $commandes;
+    private $Commandes;
 
     /**
      * @ORM\OneToMany(targetEntity=Plat::class, mappedBy="Restaurant")
@@ -51,7 +51,7 @@ class Restaurant
 
     public function __construct()
     {
-        $this->commandes = new ArrayCollection();
+        $this->Commandes = new ArrayCollection();
         $this->plats = new ArrayCollection();
         $this->pictures = new ArrayCollection();
     }
@@ -90,25 +90,25 @@ class Restaurant
      */
     public function getCommandes(): Collection
     {
-        return $this->commandes;
+        return $this->Commandes;
     }
 
-    public function addCommande(Commande $commande): self
+    public function addCommande(Commande $Commande): self
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes[] = $commande;
-            $commande->setRestaurant($this);
+        if (!$this->Commandes->contains($Commande)) {
+            $this->Commandes[] = $Commande;
+            $Commande->setRestaurant($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): self
+    public function removeCommande(Commande $Commande): self
     {
-        if ($this->commandes->removeElement($commande)) {
+        if ($this->Commandes->removeElement($Commande)) {
             // set the owning side to null (unless already changed)
-            if ($commande->getRestaurant() === $this) {
-                $commande->setRestaurant(null);
+            if ($Commande->getRestaurant() === $this) {
+                $Commande->setRestaurant(null);
             }
         }
 

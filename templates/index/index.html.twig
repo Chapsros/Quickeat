@@ -23,20 +23,8 @@
     <input type="text" class="form-control" id="Nom_du_Restaurant" placeholder="Nom du Restaurant">
   </div>
   <div class="col-sm-4">
-    <input type="text" class="form-control" id="Nom_du_plat" placeholder="Nom du plat">
+    <input type="text" class="form-control" id="Type_de_plat" placeholder="Type de plat">
   </div>
-</div>
-<hr>
-<div class="mt-4 d-flex justify-content-between">
-<div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="fastfood" value="fastfood">
-        <label class="form-check-label" for="fastfood">Fastfood</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="chinois" value="chinois">
-        <label class="form-check-label" for="chinois">Chinois</label>
-    </div>
 </div>
 <a href="#" class="btn btn-primary">Soumettre</a>
 </div>
@@ -46,81 +34,16 @@
 
 <div class="container my-5 d-flex flex-wrap justify-content-center">
 
+{% for restaurant in restaurants %}
     <div class="card mx-3 my-3" style="width: 20rem;">
     <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">En savoir+</a>
+        <h5 class="card-title">{{ restaurant.name }}</h5>
+        <p class="card-text">{{ restaurant.categories }}</p>
+        <a href="/restaurant/{{ restaurant.id }}" class="btn btn-primary">En savoir+</a>
     </div>
     </div>
-
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-
-    <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
+{% endfor %}
 </div>
 
 {% endblock %}

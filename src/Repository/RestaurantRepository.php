@@ -22,8 +22,8 @@ class RestaurantRepository extends ServiceEntityRepository
     // /**
     //  * @return Restaurant[] Returns an array of Restaurant objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByFilter($value)
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.exampleField = :val')
@@ -34,7 +34,6 @@ class RestaurantRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Restaurant
