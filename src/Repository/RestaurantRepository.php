@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Restaurant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,19 +21,35 @@ class RestaurantRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Restaurant[] Returns an array of Restaurant objects
+    //  * @return Restaurant[]
     //  */
     
-    public function findByFilter($value)
+    public function findByFilter(SearchData $search)
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $query = $this
+            ->createQueryBuilder('restaurant')
+            ->select('Localisation', 'restaurant')
+            ->join('restaurant.Localisation', 'Localisation');
+
+        if (!empty($search->name)) {
+            $query = $query
+                ->andWhere('restaurant.name LIKE :name')
+                ->setParameter('name', "%{$search->name}%");
+        }
+        if (!empty($search->ville)) {
+            $query = $query
+                ->andWhere('Localisation.city LIKE :ville')
+                ->setParameter('ville', "%{$search->ville}%");
+        }
+        if (!empty($search->categories)) {
+            $query = $query
+                ->andWhere('restaurant.categories LIKE :categories')
+                ->setParameter('categories', "%{$search->categories}%");
+        }
+
+
+
+        return $query->getQuery()->getResult();
     }
 
     /*

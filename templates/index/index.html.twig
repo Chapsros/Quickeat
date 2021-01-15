@@ -15,24 +15,25 @@
 <div class="container card mb-5">
 <div class="card-body">
 
-<div class="row mt-2 mb-4">
-  <div class="col-sm-4">
-    <input type="text" class="form-control" id="Localisation" placeholder="Localisation">
-  </div>
-  <div class="col-sm-4">
-    <input type="text" class="form-control" id="Nom_du_Restaurant" placeholder="Nom du Restaurant">
-  </div>
-  <div class="col-sm-4">
-    <input type="text" class="form-control" id="Type_de_plat" placeholder="Type de plat">
-  </div>
-</div>
-<a href="#" class="btn btn-primary">Soumettre</a>
+<div class="mt-2 mb-4">
+  {{ form_start(form) }}
+    <div class="col-md-4">
+      {{ form_row(form.ville) }} 
+    </div>
+    <div class="col-md-4">
+      {{ form_row(form.name) }} 
+    </div>
+    <div class="col-md-4">
+      {{ form_row(form.categories) }} 
+    </div>
+  <button type="submit" class="btn btn-primary">Soumettre</button>
+  {{ form_end(form) }}
 </div>
 </div>
 </div>
 
 
-<div class="container my-5 d-flex flex-wrap justify-content-center">
+<div class="container my-5 d-flex flex-wrap justify-content-start">
 
 {% for restaurant in restaurants %}
     <div class="card mx-3 my-3" style="width: 20rem;">
@@ -40,6 +41,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ restaurant.name }}</h5>
         <p class="card-text">{{ restaurant.categories }}</p>
+        <p class="card-text">{{ restaurant.localisation.city }}</p>
         <a href="/restaurant/{{ restaurant.id }}" class="btn btn-primary">En savoir+</a>
     </div>
     </div>
