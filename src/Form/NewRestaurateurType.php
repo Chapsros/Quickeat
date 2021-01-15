@@ -20,14 +20,14 @@ class NewRestaurateurType extends AbstractType
             ])
             ->add('categories', ChoiceType::class, [
                 'choices' => [
-                    'Fast Food' => 'fast_food',
-                    'Pizzeria' => 'pizzeria',
-                    'Asiatique' => 'asiatique',
-                    'Indien' => 'indien',
-                    'Halal' => 'halal',
-                    'Francais' => 'francais',
-                    'Italien' => 'italien',
-                    'Vegan' => 'vegan',                    
+                    'Fast Food' => 'Fast food',
+                    'Pizzeria' => 'Pizzeria',
+                    'Asiatique' => 'Asiatique',
+                    'Indien' => 'Indien',
+                    'Halal' => 'Halal',
+                    'Francais' => 'Francais',
+                    'Italien' => 'Italien',
+                    'Vegan' => 'Vegan',                    
                 ],
             ])
             ->add('localisation', LocalisationType::class)
