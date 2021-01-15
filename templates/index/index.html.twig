@@ -36,13 +36,13 @@
                         <div class="row">
                             {{ form_start(form) }}
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                {{ form_row(form.ville,{'attr': {'class' : 'form-control search-slt'}}) }}
+                                {{ form_row(form.ville,{'attr': {'class' : 'form-control search-slt', 'placeholder' : 'Villes'}, 'label' : false, 'required' : false}) }}
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                {{ form_row(form.name,{'attr': {'class' : 'form-control search-slt'}}) }}
+                                {{ form_row(form.name,{'attr': {'class' : 'form-control search-slt', 'placeholder' : 'Nom du restaurant'}, 'label' : false, 'required' : false}) }}
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                {{ form_row(form.categories,{'attr': {'class' : 'form-control search-slt'}}) }}
+                                {{ form_row(form.categories,{'attr': {'class' : 'form-control search-slt'}, 'label' : false, 'required' : false}) }}
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 {{ form_row(form.submit,{'attr': {'class' : 'btn btn-danger wrn-btn'}, 'label': 'Soumettre'}) }}

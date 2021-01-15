@@ -15,24 +15,11 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('name', TextType::class, [
-            'label' => false,
-            'required' => false,
-            'attr' => [
-                'placeholder' => 'Nom du restaurant'
-            ]
-        ])
-        ->add('ville', TextType::class, [
-            'label' => false,
-            'required' => false,
-            'attr' => [
-                'placeholder' => 'Villes'
-            ]
-        ])
+        ->add('ville', TextType::class)
+        ->add('name', TextType::class)
         ->add('categories', ChoiceType::class, [
-            'label' => false,
-            'required' => false,
             'choices' => [
+                'Type de restaurant' => '',
                 'Fast Food' => 'Fast food',
                 'Pizzeria' => 'Pizzeria',
                 'Asiatique' => 'Asiatique',
@@ -41,9 +28,6 @@ class SearchType extends AbstractType
                 'Francais' => 'Francais',
                 'Italien' => 'Italien',
                 'Vegan' => 'Vegan',                 
-            ],
-            'attr' => [
-                'placeholder' => 'Type de restaurant'
             ]
         ])
         ->add('submit', SubmitType::class)
