@@ -26,7 +26,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="account_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit_account", name="account_edit", methods={"GET","POST"})
      * @param Request $request
      * @param User $register
      * @return Response

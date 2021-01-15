@@ -9,21 +9,27 @@
     <h1>Mon compte</h1>
     </div>
     <hr>
-    <h5 class="mb-4">Informations :</h5>
+    <h4 class="mb-4">Informations :</h4>
     <div class="container">
-        <p>Prénom : {{app.User.name }}</p>
-        <p>Nom : {{app.User.firstname }}</p>
-        <p>Email : {{app.User.email }}</p>
-        <p>N° de l'adresse : {{app.User.localisation.number }}</p>
-        <p>Adresse : {{app.User.localisation.address }}</p>
-        <p>Ville : {{app.User.localisation.city }}</p>
-        <p>Code postal : {{app.User.localisation.Postalcode }}</p>
-        <p>Pays: {{app.User.localisation.country }}</p>
+        <div class="row">
+            <div class="col-sm">
+                <p>Prénom : {{app.User.name }}</p>
+                <p>Nom : {{app.User.firstname }}</p>
+                <p>Email : {{app.User.email }}</p>
+            </div>
+            <div class="col-sm">
+                <p>N° de l'adresse : {{app.User.localisation.number }}</p>
+                <p>Adresse : {{app.User.localisation.address }}</p>
+                <p>Ville : {{app.User.localisation.city }}</p>
+                <p>Code postal : {{app.User.localisation.Postalcode }}</p>
+                <p>Pays: {{app.User.localisation.country }}</p>
+            </div>
+        </div>
     </div>
     <hr>
     <div class="row mb-5 mt-4">
         <div class="col d-flex justify-content-end">
-            <a href="{{ path('account_edit', {'id': app.User.id}) }}" class="btn btn-primary mr-2">Modifier</a>
+            <a href="{{ path('account_edit', {'id': app.User.id}) }}" class="btn btn-primary mr-2">Modifier informations</a>
             <a href="#" class="btn btn-primary mr-2">Modifier mot de passe</a>
         </div>
     </div>
