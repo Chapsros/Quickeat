@@ -20,7 +20,7 @@ class IndexController extends AbstractController
     {
         $restaurants = $restaurantRepository->findAll();
 
-        return $this->render('index/index.html.twig', [
+        return $this->render('index/mail.html.twig', [
             'controller_name' => 'IndexController',
             'restaurants' => $restaurants
         ]);

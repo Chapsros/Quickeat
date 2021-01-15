@@ -20,7 +20,7 @@ class PlatController extends AbstractController
      */
     public function index(PlatRepository $platRepository): Response
     {
-        return $this->render('plat/index.html.twig', [
+        return $this->render('plat/mail.html.twig', [
             'plats' => $platRepository->findAll(),
         ]);
     }
