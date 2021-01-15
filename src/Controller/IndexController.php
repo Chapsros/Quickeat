@@ -17,6 +17,7 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param RestaurantRepository $restaurantRepository
+     * @param Request $request
      * @return Response
      */
     public function index(RestaurantRepository $restaurantRepository, Request $request)
