@@ -62,6 +62,11 @@ class User implements UserInterface
      */
     private $Localisation;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $activation_token;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -224,6 +229,18 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the User, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activation_token;
+    }
+
+    public function setActivationToken(?string $activation_token): self
+    {
+        $this->activation_token = $activation_token;
+
+        return $this;
     }
 }
 

@@ -2,15 +2,14 @@
     background-size: cover !important;
 }
 
-.centered {
+/*.centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
     font-size: 11em;
     font-family: "Helvetica", sans-serif;
-}
+}*/
 .search-sec{
     padding: 1.8rem;
     z-index: 6;

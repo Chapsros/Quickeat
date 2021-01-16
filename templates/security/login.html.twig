@@ -9,11 +9,6 @@
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.User %}
-        <div class="mb-3">
-            Connecté en tant que {{ app.User.Username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-        </div>
-    {% endif %}
     <hr>
     <div class="d-flex justify-content-center">
         <h1>Se connecter</h1>
