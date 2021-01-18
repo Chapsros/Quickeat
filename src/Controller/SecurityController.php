@@ -53,7 +53,7 @@ class SecurityController extends AbstractController
      * @param TokenGeneratorInterface $tokenGenerator
      * @return Response
      */
-    public function forgottenPass(Request $request, UserRepository $userRepository, Swift_Mailer $mailer,
+    public function forgottenPass(Request $request, UserRepository $userRepository, \Swift_Mailer $mailer,
         TokenGeneratorInterface $tokenGenerator){
 
         $form = $this->createForm(ResetPassType::class);
