@@ -28,21 +28,9 @@
 
       composer require symfony/swiftmailer-bundle
 
-   
--- Installation de MailDev :
-
-      npm install -g maildev
-
 -- Paramétrage SwfitMailer :
-
-    
+ 
 - .env --> MAILER_URL=null://localhost
-
-
-- Dans le fichier php.ini indiquer le port smtp pour recevoir les mails :
-
-      SMTP = localhost
-      smtp_port = 2525
 
 -- Utilisation de MAMP :
 
@@ -51,8 +39,7 @@
 -- Lancement du site depuis votre IDE :
 
      php bin/console s:r
-      
-     
+        
 **Fichier d'instruction (Windows) :**
 
 
