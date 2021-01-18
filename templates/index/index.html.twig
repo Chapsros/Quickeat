@@ -63,10 +63,10 @@
     <div class="card mx-3 my-3" style="width: 20rem;">
     <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
     <div class="card-body">
-        <h5 class="card-title">{{ restaurant.name }}</h5>
-        <p class="card-text">{{ restaurant.categories }}</p>
-        <p class="card-text">{{ restaurant.localisation.city }}</p>
-        <a href="/restaurant/{{ restaurant.id }}" class="btn btn-primary">En savoir+</a>
+        <h5 class="card-title"> Restaurant : {{ restaurant.name }}</h5>
+        <p class="card-text">Catégorie : {{ restaurant.categories }}</p>
+        <p class="card-text">Ville : {{ restaurant.localisation.city }}</p>
+        <a href="/restaurant/{{ restaurant.id }}" class="btn btn-primary">En savoir +</a>
     </div>
     </div>
 {% endfor %}
