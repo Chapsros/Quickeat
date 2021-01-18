@@ -24,7 +24,7 @@
 
 -- Installation du package SwiftMailer (Symfony) :
 
-      composer require symfony/swiftmailer-bundle
+    composer require symfony/swiftmailer-bundle
 
 -- Paramétrage SwfitMailer :
  
