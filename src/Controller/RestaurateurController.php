@@ -14,6 +14,9 @@ class RestaurateurController extends AbstractController
 {
     /**
      * @Route("/new", name="new", methods={"GET","POST"})
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return Response
      */
     public function new(Request $request, EntityManagerInterface $em): Response
     {

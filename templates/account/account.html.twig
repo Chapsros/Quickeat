@@ -31,7 +31,7 @@
     <div class="row mb-5 mt-4">
         <div class="col d-flex justify-content-end">
             <a href="{{ path('account_edit', {'id': app.User.id}) }}" class="btn btn-primary mr-2">Modifier informations</a>
-            <a href="#" class="btn btn-primary mr-2">Modifier mot de passe</a>
+            <a href="{{ path('app_forgotten_password', {'id': app.User.id}) }}" class="btn btn-primary mr-2">Modifier mot de passe</a>
         </div>
     </div>
 

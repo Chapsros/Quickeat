@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\ResetPassType;
 use App\Repository\UserRepository;
+use Psr\Container\ContainerInterface;
 use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -43,9 +45,6 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-
-
-
     /**
      * @Route("/oubli-pass", name="app_forgotten_password")
      * @param Request $request
@@ -64,10 +63,12 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $donnees = $form->getData();
 
-            $user = $userRepository->findOneBy($donnees['email']);
+            $email = $donnees['email'];
+
+            $user = $userRepository->findOneBy(['email'=> $email]);
 
             if (!$user) {
-                $this->addFlash('danger', 'Cette addresse n\'existe pas');
+                $this->addFlash('danger', 'Cette adresse n\'existe pas');
 
                 return $this->redirectToRoute('app_login');
             }
@@ -103,5 +104,36 @@ class SecurityController extends AbstractController
         }
 
         return $this->render('security/forgotten_password.html.twig', ['emailForm' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/reset-pass/{token}", name="app_reset_password")
+     * @param $token
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     */
+    public function resetPassword($token, Request $request, UserPasswordEncoderInterface $passwordEncoder){
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['reset_token' => $token]);
+
+        if (!$user){
+            $this->addFlash('danger', 'Token inconnu');
+            return $this->redirectToRoute('app_login');
+        }
+
+        if ($request->isMethod('POST')){
+            $user->setResetToken(null);
+
+            $user->setPassword($passwordEncoder->encodePassword($user, $request->request->get('password')));
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('message', 'Mot de passe modifié avec succès');
+
+            return $this->redirectToRoute('app_login');
+        }else{
+            return $this->render('security/reset_password.html.twig', ['token' => $token]);
+        }
+
     }
 }
