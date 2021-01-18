@@ -18,11 +18,9 @@
 	mv composer.phar /usr/local/bin/composer
 	chmod +x /usr/local/bin/composer
 		
-      
 -- Mise à jour de composer :
       
 	sudo composer self-update
-      
 
 -- Installation du package SwiftMailer (Symfony) :
 
