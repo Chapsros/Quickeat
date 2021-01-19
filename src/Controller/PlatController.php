@@ -20,8 +20,10 @@ class PlatController extends AbstractController
      */
     public function index(PlatRepository $platRepository): Response
     {
+
+        $plats = $platRepository->findByRestaurant(3,'');
         return $this->render('plat/index.html.twig', [
-            'plats' => $platRepository->findAll(),
+            'plats' => $plats,
         ]);
     }
 

@@ -80,6 +80,11 @@ class User implements UserInterface
      */
     private $reset_token;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Restaurant::class, mappedBy="user")
+     */
+    private $restaurants;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -101,6 +106,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->Commandes = new ArrayCollection();
+        $this->restaurants = new ArrayCollection();
     }
 
 
@@ -264,6 +270,36 @@ class User implements UserInterface
     public function setResetToken(?string $reset_token): self
     {
         $this->reset_token = $reset_token;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Restaurant[]
+     */
+    public function getRestaurants(): Collection
+    {
+        return $this->restaurants;
+    }
+
+    public function addRestaurant(Restaurant $restaurant): self
+    {
+        if (!$this->restaurants->contains($restaurant)) {
+            $this->restaurants[] = $restaurant;
+            $restaurant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRestaurant(Restaurant $restaurant): self
+    {
+        if ($this->restaurants->removeElement($restaurant)) {
+            // set the owning side to null (unless already changed)
+            if ($restaurant->getUser() === $this) {
+                $restaurant->setUser(null);
+            }
+        }
 
         return $this;
     }

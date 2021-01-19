@@ -21,6 +21,7 @@ class RestaurateurController extends AbstractController
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $restaurant = new Restaurant();
+        $restaurant->setUser($this->getUser());
         $form = $this->createForm(NewRestaurateurType::class, $restaurant);
 
         $form->handleRequest($request);

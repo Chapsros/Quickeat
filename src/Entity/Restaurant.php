@@ -49,6 +49,11 @@ class Restaurant
      */
     private $pictures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="restaurants")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->Commandes = new ArrayCollection();
@@ -183,6 +188,18 @@ class Restaurant
                 $picture->setRestaurant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

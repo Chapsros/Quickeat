@@ -22,19 +22,24 @@ class PlatRepository extends ServiceEntityRepository
     // /**
     //  * @return Plat[] Returns an array of Plat objects
     //  */
-    /*
-    public function findByExampleField($value)
+    public function findByRestaurant($value, $type)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        
+
+        $query = $this
+            ->createQueryBuilder('plat')
+            ->Where('plat.Restaurant = :value')
+            ->setParameter('value', $value);
+
+        if (!empty($type)) {
+            $query = $query
+                ->andWhere('plat.type = :type')
+                ->setParameter('type', $type);
+        }
+
+        return $query->getQuery()->getResult();
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Plat
