@@ -24,8 +24,6 @@ class PlatRepository extends ServiceEntityRepository
     //  */
     public function findByRestaurant($value, $type)
     {
-        
-
         $query = $this
             ->createQueryBuilder('plat')
             ->Where('plat.Restaurant = :value')
@@ -40,6 +38,18 @@ class PlatRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
     
+    // /**
+    //  * @return Plat[] Returns an array of Plat objects
+    //  */
+    public function findRestaurant($value)
+    {
+        $query = $this
+            ->createQueryBuilder('plat')
+            ->Where('plat.id = :value')
+            ->setParameter('value', $value);
+
+        return $query->getQuery()->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?Plat
