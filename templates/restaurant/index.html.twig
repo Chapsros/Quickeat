@@ -45,6 +45,7 @@
           <h5 class="card-title">{{ entree.name }}</h5>
           <p class="card-text">{{ entree.type }}</p>
           <p class="card-text"><small class="text-muted">boutton de commande et fiche du plat / avis</small></p>
+          <a href="{{ path('panier_add', {'id': entree.id}) }}" class="btn btn-primary mr-2"><h5 class="card-title">{{ entree.price }} €</h5>Ajouter au panier</a>
         </div>
       </div>
     </div>
@@ -68,6 +69,7 @@
           <h5 class="card-title">{{ plat.name }}</h5>
           <p class="card-text">{{ plat.type }}</p>
           <p class="card-text"><small class="text-muted">boutton de commande et fiche du plat / avis</small></p>
+          <a href="{{ path('panier_add', {'id': plat.id}) }}" class="btn btn-primary mr-2"><h5 class="card-title">{{ plat.price }} €</h5>Ajouter au panier</a>
         </div>
       </div>
     </div>
@@ -90,6 +92,7 @@
           <h5 class="card-title">{{ dessert.name }}</h5>
           <p class="card-text">{{ dessert.type }}</p>
           <p class="card-text"><small class="text-muted">boutton de commande et fiche du plat / avis</small></p>
+          <a href="{{ path('panier_add', {'id': dessert.id}) }}" class="btn btn-primary mr-2"><h5 class="card-title">{{ dessert.price }} €</h5>Ajouter au panier</a>
         </div>
       </div>
     </div>
@@ -113,6 +116,7 @@
           <h5 class="card-title">{{ boisson.name }}</h5>
           <p class="card-text">{{ boisson.type }}</p>
           <p class="card-text"><small class="text-muted">boutton de commande et fiche du plat / avis</small></p>
+          <a href="{{ path('panier_add', {'id': boisson.id}) }}" class="btn btn-primary mr-2"><h5 class="card-title">{{ boisson.price }} €</h5>Ajouter au panier</a>
         </div>
       </div>
     </div>
