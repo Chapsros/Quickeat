@@ -60,6 +60,7 @@ class User implements UserInterface
      */
     private $phoneNumber;
 
+
     /**
      * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="User")
      */
@@ -84,6 +85,11 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Restaurant::class, mappedBy="user")
      */
     private $restaurants;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageFilename;
 
     public function getId(): ?int
     {
@@ -300,6 +306,18 @@ class User implements UserInterface
                 $restaurant->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImageFilename(): ?string
+    {
+        return $this->imageFilename;
+    }
+
+    public function setImageFilename(?string $imageFilename): self
+    {
+        $this->imageFilename = $imageFilename;
 
         return $this;
     }
