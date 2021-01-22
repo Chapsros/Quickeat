@@ -6,21 +6,29 @@
 
    <div class="container mt-3 mb-3">
         <form method="post">
-            <hr>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center shadow p-3 mb-5 bg-warning rounded">
                 <h1>Nouveau Restaurant</h1>
             </div>
-            <hr><div class="container">
+            <div class="container">
         {{ form_start(new_restaurateur) }}
+                <div class="row">
+                    <div class="col-md-6">{{ form_row(new_restaurateur.name) }}</div>
+                    <div class="col-md-6">{{ form_row(new_restaurateur.categories) }}</div>
+
+                </div>
             {{ form_row(new_restaurateur.name) }}
             {{ form_row(new_restaurateur.categories) }}
-            <hr class="mt-3 ">
-            <h3 class="mb-3">Coordonnées :</h3>
-            {{ form_row(new_restaurateur.localisation.country) }}
-            {{ form_row(new_restaurateur.localisation.number) }}
-            {{ form_row(new_restaurateur.localisation.address) }}
-            {{ form_row(new_restaurateur.localisation.city) }}
-            {{ form_row(new_restaurateur.localisation.postalCode) }}
+            <div>
+            <h3 class="shadow-sm p-3 mb-5 bg-warning rounded mt-3">Coordonnées :</h3>
+            </div>
+                <div class="row">
+                    <div class="col-md-3">{{ form_row(new_restaurateur.localisation.city) }}</div>
+                    <div class="col-md-2">{{ form_row(new_restaurateur.localisation.number) }}</div>
+                    <div class="col-md-3">{{ form_row(new_restaurateur.localisation.address) }}</div>
+                    <div class="col-md-2">{{ form_row(new_restaurateur.localisation.postalCode) }}</div>
+                    <div class="col-md-2">{{ form_row(new_restaurateur.localisation.country) }}</div>
+                </div>
+
             <div class="row mb-5 mt-5">
                 <div class="col d-flex justify-content-end">
                     <button class="btn btn-primary">Valider</button>

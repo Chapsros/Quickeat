@@ -34,36 +34,22 @@ class AccountController extends AbstractController
     /**
      * @Route("/{id}/edit_account", name="account_edit", methods={"GET","POST"})
      * @param Request $request
-     * @param User $user
-     * @param EntityManagerInterface $em
+     * @param User $register
      * @return Response
      */
-    public function edit(Request $request, User $user, EntityManagerInterface $em): Response
+    public function edit(Request $request, User $register): Response
     {
-        $form = $this->createForm(SettingAccountType::class, $user);
+        $form = $this->createForm(SettingAccountType::class, $register);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $uploadedFile */
-            $uploadedFile = $form['imageFile']->getData();
-            $destination = $this->getParameter('kernel.project_dir').'/public/uploads/users_logo';
-            $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-            $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid().'.'.$uploadedFile->guessExtension();
-            $uploadedFile->move(
-                $destination,
-                $newFilename
-            );
-            $user->setImageFilename($newFilename);
-
-            $em->persist($user);
-            $em->flush();
-
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('index');
         }
 
         return $this->render('account/settings_account.html.twig', [
-            'user' => $user,
+            'user' => $register,
             'formaccount' => $form->createView(),
         ]);
     }

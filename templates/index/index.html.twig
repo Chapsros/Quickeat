@@ -54,14 +54,17 @@
             </form>
         </div>
     </section>
-
-
-    <div class="container mt-4 d-flex flex-wrap card"><h1>Restaurants</h1></div>
+    <div class="container">
+    <div class="d-flex justify-content-center shadow p-3 mb-5 bg-warning rounded">
+        <h1>Mes restaurants</h1>
+    </div>
+    </div>
     <div class="container my-5 d-flex flex-wrap justify-content-start">
-
 {% for restaurant in restaurants %}
     <div class="card mx-3 my-3" style="width: 20rem;">
-    <img src="{{ asset('testimg/card.jpg') }}" class="card-img-top" alt="{{ asset('testimg/card.jpg') }}">
+        {% if not restaurant.imageFilename is empty %}
+            <img class="card-img-top" src="{{ asset('uploads/users_logo/' ~ restaurant.imageFilename)  }}" alt="Image restaurant">
+        {% endif %}
     <div class="card-body">
         <h5 class="card-title"> Restaurant : {{ restaurant.name }}</h5>
         <p class="card-text">Catégorie : {{ restaurant.categories }}</p>

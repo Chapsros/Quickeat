@@ -4,40 +4,46 @@
 
 {% block body %}
 <div class="container mt-4 mb-4">
-    <hr>
-    <div class="d-flex justify-content-center">
-    <h1>Mes Restaurants</h1>
+    <div class="d-flex justify-content-center shadow p-3 mb-5 bg-warning rounded">
+        <h1>Mes restaurants</h1>
     </div>
-    <hr>
-    {% for restaurant in restaurants %}
-    <h4>{{ restaurant.name }} :</h4>
-    <hr>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <p>Prénom : {{app.User.name }}</p>
-                <p>Nom : {{app.User.firstname }}</p>
-                <p>Email : {{app.User.email }}</p>
-            </div>
-            <div class="col-sm">
-                <p>N° de l'adresse : {{app.User.localisation.number }}</p>
-                <p>Adresse : {{app.User.localisation.address }}</p>
-                <p>Ville : {{app.User.localisation.city }}</p>
-                <p>Code postal : {{app.User.localisation.Postalcode }}</p>
-                <p>Pays: {{app.User.localisation.country }}</p>
-                <a href="#" class="btn btn-primary mr-2">Uploads</a>
-                <a href="/plat/ {{ restaurant.id }}" class="btn btn-primary mr-2">Ajouter des plats</a>
-            </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <a href="{{ path('new') }}" class="btn btn-primary">Nouveau restaurant</a>
         </div>
+
     </div>
     <hr>
-    {% endfor %}
+        <div class="row d-flex justify-content-center">
+            {% for restaurant in restaurants %}
+            <div class="card w-40 m-4" style="width: 18rem;">
+                {% if not restaurant.imageFilename is empty %}
+                    <img class="card-img-top" src="{{ asset('uploads/users_logo/' ~ restaurant.imageFilename)  }}" alt="Image restaurant">
+                {% endif %}
+                {% if restaurant.imageFilename is empty %}
+                    <img class="card-img-top" src="{{ asset('testimg/Pas_d\'image_disponible.svg.png')  }}" alt="Card image cap">
 
-    <div class="row mb-5 mt-4">
-        <div class="col d-flex justify-content-end">
-            <a href="{{ path('new') }}" class="btn btn-primary mr-2">Nouveau restaurant</a>
+                {% endif %}
+                        <div class="card-body">
+                        <h5 class="card-title">Restaurant : {{ restaurant.name }}</h5>
+                        <p class="card-text">Catégorie : {{ restaurant.categories }}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Adresse : {{ app.User.localisation.address }}</li>
+                        <li class="list-group-item">Ville : {{ app.User.name }}</li>
+                    </ul>
+                    <div class="card-body">
+                        {% if not restaurant.imageFilename is empty %}
+                            <a href="{{ path('edit_logo', {'id': restaurant.id}) }}" class="btn btn-primary">Modifier l'image</a>
+                        {% endif %}
+                        {% if restaurant.imageFilename is empty %}
+                            <a href="{{ path('edit_logo', {'id': restaurant.id}) }}" class="btn btn-primary">Ajouter une image</a>
+                        {% endif %}
+                        <a href="/plat/ {{ restaurant.id }}" class="btn btn-primary mt-3">Ajouter des plats</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-    </div>
 
-</div>
+        </div>
 {% endblock %}

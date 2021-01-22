@@ -45,9 +45,9 @@ class Restaurant
     private $Localisation;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="Restaurant")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $pictures;
+    private $imageFilename;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="restaurants")
@@ -58,7 +58,6 @@ class Restaurant
     {
         $this->Commandes = new ArrayCollection();
         $this->plats = new ArrayCollection();
-        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -162,35 +161,7 @@ class Restaurant
         return $this;
     }
 
-    /**
-     * @return Collection|Picture[]
-     */
-    public function getPictures(): Collection
-    {
-        return $this->pictures;
-    }
 
-    public function addPicture(Picture $picture): self
-    {
-        if (!$this->pictures->contains($picture)) {
-            $this->pictures[] = $picture;
-            $picture->setRestaurant($this);
-        }
-
-        return $this;
-    }
-
-    public function removePicture(Picture $picture): self
-    {
-        if ($this->pictures->removeElement($picture)) {
-            // set the owning side to null (unless already changed)
-            if ($picture->getRestaurant() === $this) {
-                $picture->setRestaurant(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getUser(): ?User
     {
@@ -203,4 +174,24 @@ class Restaurant
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFilename()
+    {
+        return $this->imageFilename;
+    }
+
+    /**
+     * @param mixed $imageFilename
+     * @return Restaurant
+     */
+    public function setImageFilename($imageFilename)
+    {
+        $this->imageFilename = $imageFilename;
+        return $this;
+    }
+
+
 }

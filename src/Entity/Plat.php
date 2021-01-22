@@ -39,15 +39,8 @@ class Plat
      */
     private $Restaurant;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="plat")
-     */
-    private $pictures;
 
-    public function __construct()
-    {
-        $this->pictures = new ArrayCollection();
-    }
+
 
     public function getId(): ?int
     {
@@ -102,33 +95,6 @@ class Plat
         return $this;
     }
 
-    /**
-     * @return Collection|Picture[]
-     */
-    public function getPictures(): Collection
-    {
-        return $this->pictures;
-    }
 
-    public function addPicture(Picture $picture): self
-    {
-        if (!$this->pictures->contains($picture)) {
-            $this->pictures[] = $picture;
-            $picture->setPlat($this);
-        }
 
-        return $this;
-    }
-
-    public function removePicture(Picture $picture): self
-    {
-        if ($this->pictures->removeElement($picture)) {
-            // set the owning side to null (unless already changed)
-            if ($picture->getPlat() === $this) {
-                $picture->setPlat(null);
-            }
-        }
-
-        return $this;
-    }
 }
