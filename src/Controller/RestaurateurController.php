@@ -51,8 +51,9 @@ class RestaurateurController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-        $em->persist($restaurant);
-        $em->flush();
+            $em->persist($restaurant);
+            $em->flush();
+            return $this->redirect("/restaurateur/");
         }
 
         return $this->render('restaurateur/new.html.twig', [
