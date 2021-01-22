@@ -39,6 +39,10 @@ class Plat
      */
     private $Restaurant;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $price;
 
 
     public function getId(): ?int
