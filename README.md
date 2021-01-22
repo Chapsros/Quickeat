@@ -36,7 +36,7 @@
 
 -- Lancement du site depuis votre IDE :
 
-     php bin/console s:r
+     php bin/console serve:r
         
 **Fichier d'instruction (Windows) :**
 
