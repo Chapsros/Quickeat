@@ -40,19 +40,6 @@ class Plat
     private $Restaurant;
 
 
-<<<<<<< HEAD
-
-=======
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $price;
-
-    public function __construct()
-    {
-        $this->pictures = new ArrayCollection();
-    }
->>>>>>> 36c1442b18996d6ca1807c54a45c48fd2e2e6a3f
 
     public function getId(): ?int
     {
@@ -108,21 +95,6 @@ class Plat
     }
 
 
-
-<<<<<<< HEAD
-=======
-    public function removePicture(Picture $picture): self
-    {
-        if ($this->pictures->removeElement($picture)) {
-            // set the owning side to null (unless already changed)
-            if ($picture->getPlat() === $this) {
-                $picture->setPlat(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getPrice(): ?float
     {
         return $this->price;
@@ -134,5 +106,4 @@ class Plat
 
         return $this;
     }
->>>>>>> 36c1442b18996d6ca1807c54a45c48fd2e2e6a3f
 }
