@@ -14,7 +14,8 @@ class UploadFileType extends AbstractType
     {
         $builder
             ->add('imageFile', FileType::class, [
-                'mapped' => false
+                'mapped' => false,
+                'label' => 'Image conseillée (360x230 pixels)',
             ])
         ;
     }
