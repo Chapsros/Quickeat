@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity("email")
  */
 class User implements UserInterface
 {
@@ -18,14 +20,13 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     *
-     *
      */
     private $id;
 
     /**
      * @Assert\NotBlank
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email
      */
     private $email;
 
@@ -57,6 +58,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 10,
+     *      minMessage = "la longueur minimum ne doit pas dépasser {{ limit }} chiffres ",
+     *      maxMessage = "la longueur maximum ne doit pas dépasser {{ limit }} chiffres"
+     * )
      */
     private $phoneNumber;
 

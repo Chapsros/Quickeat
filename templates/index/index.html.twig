@@ -69,7 +69,7 @@
         <h5 class="card-title"> Restaurant : {{ restaurant.name }}</h5>
         <p class="card-text">Catégorie : {{ restaurant.categories }}</p>
         <p class="card-text">Ville : {{ restaurant.localisation.city }}</p>
-        <a href="/restaurant/{{ restaurant.id }}" class="btn btn-primary">En savoir +</a>
+        <a href="{{ path('lerestaurant', {'id': restaurant.id}) }}" class="btn btn-primary">En savoir +</a>
     </div>
     </div>
 {% endfor %}

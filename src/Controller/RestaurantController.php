@@ -5,12 +5,16 @@ namespace App\Controller;
 use App\Entity\Restaurant;
 use App\Repository\PlatRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class RestaurantController extends AbstractController
 {
     /**
-     * @Route("/restaurant/{id}", name="restaurant")
+     * @Route("/lerestaurant/{id}", name="lerestaurant")
+     * @param Restaurant $restaurant
+     * @param PlatRepository $platRepository
+     * @return Response
      */
     public function index(Restaurant $restaurant, PlatRepository $platRepository)
     {

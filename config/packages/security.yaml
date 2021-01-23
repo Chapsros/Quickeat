@@ -44,8 +44,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
-         - { path: ^/profile, roles: ROLE_USER }
-
-    role_hierarchy:
-        ROLE_RESTAURATEUR: ROLE_USER
-        ROLE_ADMIN: ROLE_RESTAURATEUR
+         - { path: ^/restau, roles: ROLE_RESTAURATEUR }
+         - { path: ^/member, roles: ROLE_USER }
