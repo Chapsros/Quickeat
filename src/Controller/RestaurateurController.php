@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/restaurateur")
+ * @Route("restau/restaurateur")
  */
 class RestaurateurController extends AbstractController
 {
@@ -53,7 +53,7 @@ class RestaurateurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($restaurant);
             $em->flush();
-            return $this->redirect("/restaurateur/");
+            return $this->redirect("/restau/restaurateur/");
         }
 
         return $this->render('restaurateur/new.html.twig', [

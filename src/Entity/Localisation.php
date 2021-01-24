@@ -6,6 +6,7 @@ use App\Repository\LocalisationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * @ORM\Entity(repositoryClass=LocalisationRepository::class)
  */
@@ -21,7 +22,12 @@ class Localisation
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Assert\Regex("/[0-9]{10}$/")
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 4,
+     *      minMessage = "la longueur minimum ne doit pas dépasser {{ limit }} chiffres ",
+     *      maxMessage = "la longueur maximum ne doit pas dépasser {{ limit }} chiffres"
+     * )
      */
     private $number;
 
@@ -32,9 +38,13 @@ class Localisation
     private $address;
 
     /**
-     * @Assert\Regex("/[0-9]{5}$/")
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 5,
+     *      minMessage = "la longueur minimum ne doit pas dépasser {{ limit }} chiffres ",
+     *      maxMessage = "la longueur maximum ne doit pas dépasser {{ limit }} chiffres"
+     * )
      */
     private $postalCode;
 
@@ -47,13 +57,7 @@ class Localisation
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     *      * @Assert\Length(
-     *      min = 3,
-     *      max = 42,
-     *      minMessage = "Le nombre de caractère est trop faible, le seuil minimul est de ({{ limit }}) caractères",
-     *      maxMessage = "Le nombre de caractère est trop élévé, la limite est de ({{ limit }}) caractères",
-     *      allowEmptyString = false
-     * )
+     * @Assert\Country
      */
     private $country;
 

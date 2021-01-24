@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccountController extends AbstractController
 {
     /**
-     * @Route("/account", name="account")
+     * @Route("member/account", name="account")
      * @param UserRepository $userRepository
      * @return Response
      */
@@ -32,7 +32,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit_account", name="account_edit", methods={"GET","POST"})
+     * @Route("member/{id}/edit_account", name="account_edit", methods={"GET","POST"})
      * @param Request $request
      * @param User $register
      * @return Response
@@ -45,7 +45,7 @@ class AccountController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('index');
+            return $this->redirect('/account');
         }
 
         return $this->render('account/settings_account.html.twig', [

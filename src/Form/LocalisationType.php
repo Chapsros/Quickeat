@@ -22,11 +22,9 @@ class LocalisationType extends AbstractType
             ])
             ->add('postalCode', NumberType::class, [
                 'label' => 'Code postal'
-
             ])
             ->add('city', TextType::class, [
-            'label' => 'Ville'
-
+                'label' => 'Ville'
             ])
             ->add('country', TextType::class, [
                 'label' => 'Pays'

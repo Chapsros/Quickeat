@@ -34,7 +34,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/panier", name="panier")
+     * @Route("member/panier", name="panier")
      */
     public function panier(SessionInterface $session, PlatRepository $platRepository)
     {
@@ -66,7 +66,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/panier/add/{id}", name="panier_add")
+     * @Route("member/panier/add/{id}", name="panier_add")
      */
     public function add($id, SessionInterface $session, PlatRepository $platRepository)
     {
@@ -90,7 +90,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/panier/remove/{id}", name="panier_remove")
+     * @Route("member/panier/remove/{id}", name="panier_remove")
      */
     public function remove($id, SessionInterface $session)
     {
