@@ -54,7 +54,6 @@ class User implements UserInterface
      */
     private $firstname;
 
-
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
@@ -97,6 +96,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageFilename;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true, options={"default": "250"})
+     */
+    private $sold;
 
     public function getId(): ?int
     {
@@ -328,6 +332,20 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getSold(): ?int
+    {
+        return $this->sold;
+    }
+
+    public function setSold(?int $sold): self
+    {
+        $this->sold = $sold;
+
+        return $this;
+    }
+
+
 }
 
 
