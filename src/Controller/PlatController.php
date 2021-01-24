@@ -16,19 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlatController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="plat_index", methods={"GET"})
+     * @Route("/", name="plat_index", methods={"GET"})
      */
-    public function index(PlatRepository $platRepository, Plat $id): Response
+    public function index(PlatRepository $platRepository): Response
     {
-        $plats = $platRepository->findByRestaurant($id,'');
+        $plats = $platRepository->findAll();
         return $this->render('plat/index.html.twig', [
-            'plats' => $plats,
-            'id' => $id
+            'plats' => $plats
         ]);
     }
 
     /**
-     * @Route("/new", name="plat_new", methods={"GET","POST"})
+     * @Route("/new/", name="plat_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {

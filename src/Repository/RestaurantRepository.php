@@ -36,10 +36,10 @@ class RestaurantRepository extends ServiceEntityRepository
                 ->andWhere('restaurant.name LIKE :name')
                 ->setParameter('name', "%{$search->name}%");
         }
-        if (!empty($search->ville)) {
+        if (!empty($search->city)) {
             $query = $query
-                ->andWhere('Localisation.city LIKE :ville')
-                ->setParameter('ville', "%{$search->ville}%");
+                ->andWhere('Localisation.city LIKE :city')
+                ->setParameter('city', "%{$search->city}%");
         }
         if (!empty($search->categories)) {
             $query = $query

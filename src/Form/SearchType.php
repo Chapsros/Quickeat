@@ -15,30 +15,48 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('ville', TextType::class)
-        ->add('name', TextType::class)
-        ->add('categories', ChoiceType::class, [
-            'choices' => [
-                'Type de restaurant' => '',
-                'Fast Food' => 'Fast food',
-                'Pizzeria' => 'Pizzeria',
-                'Asiatique' => 'Asiatique',
-                'Indien' => 'Indien',
-                'Halal' => 'Halal',
-                'Francais' => 'Francais',
-                'Italien' => 'Italien',
-                'Vegan' => 'Vegan',                 
-            ]
-        ])
-        ->add('submit', SubmitType::class)
-        ;
+            ->add('city', TextType::class, [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Villes',
+                    'class' => 'form-control search-slt' 
+                ]
+            ])
+            ->add('name', TextType::class, [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Nom du restaurant',
+                    'class' => 'form-control search-slt' 
+                ]
+            ])
+            ->add('categories', ChoiceType::class, [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'class' => 'form-control search-slt' 
+                ],
+                'choices' => [
+                    'Type de restaurant' => '',
+                    'Fast Food' => 'Fast food',
+                    'Pizzeria' => 'Pizzeria',
+                    'Asiatique' => 'Asiatique',
+                    'Indien' => 'Indien',
+                    'Halal' => 'Halal',
+                    'Francais' => 'Francais',
+                    'Italien' => 'Italien',
+                    'Vegan' => 'Vegan',                 
+                ]
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => SearchData::class,
-            'method' => 'GET',
+            'method' => 'POST',
             'csrf_protection' => false
         ]);
     }
