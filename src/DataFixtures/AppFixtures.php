@@ -18,15 +18,35 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
 
-        $user = new User();
+        $admin = new User();
 
-        $user->setEmail('admin@admin.com')
+        $admin->setEmail('admin@admin.com')
             ->setRoles(["ROLE_ADMIN"])
             ->setName('admin')
             ->setFirstname('admin')
             ->setPhoneNumber('0123456789')
-            ->setPassword($this->passwordEncoder->encodePassword($user, 'admin'));
+            ->setPassword($this->passwordEncoder->encodePassword($admin, 'admin'));
 
+        $resto = new User();
+
+        $resto->setEmail('resto@resto.com')
+            ->setRoles(["ROLE_RESTAURATEUR"])
+            ->setName('resto')
+            ->setFirstname('resto')
+            ->setPhoneNumber('0123456789')
+            ->setPassword($this->passwordEncoder->encodePassword($resto, 'resto'));
+            
+        $user = new User();
+
+        $user->setEmail('user@user.com')
+            ->setRoles(["ROLE_USER"])
+            ->setName('user')
+            ->setFirstname('user')
+            ->setPhoneNumber('0123456789')
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'user'));
+
+        $manager->persist($admin);
+        $manager->persist($resto);
         $manager->persist($user);
 
         $manager->flush();
