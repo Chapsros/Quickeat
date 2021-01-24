@@ -4,7 +4,7 @@
 
 {% block body %}
 
-   <div class="container mt-3 mb-3">
+   <div class="container mt-4 mb-3">
         <form method="post">
             <div class="d-flex justify-content-center shadow p-3 mb-5 bg-warning rounded">
                 <h1>Nouveau Restaurant</h1>
@@ -14,7 +14,6 @@
                 <div class="row">
                     <div class="col-md-6">{{ form_row(new_restaurateur.name) }}</div>
                     <div class="col-md-6">{{ form_row(new_restaurateur.categories) }}</div>
-
                 </div>
             {{ form_row(new_restaurateur.name) }}
             {{ form_row(new_restaurateur.categories) }}

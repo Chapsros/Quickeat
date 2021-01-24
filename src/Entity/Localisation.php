@@ -24,7 +24,7 @@ class Localisation
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 1,
-     *      max = 5,
+     *      max = 4,
      *      minMessage = "la longueur minimum ne doit pas dépasser {{ limit }} chiffres ",
      *      maxMessage = "la longueur maximum ne doit pas dépasser {{ limit }} chiffres"
      * )
@@ -38,15 +38,13 @@ class Localisation
     private $address;
 
     /**
+     * @ORM\Column(type="integer")
      * @Assert\Length(
-     *      min = 1,
+     *      min = 5,
      *      max = 5,
      *      minMessage = "la longueur minimum ne doit pas dépasser {{ limit }} chiffres ",
      *      maxMessage = "la longueur maximum ne doit pas dépasser {{ limit }} chiffres"
      * )
-     * @Assert\Regex("/^[0-9]{5}$/")
-     * @ORM\Column(type="integer")
-     * @Assert\NotBlank
      */
     private $postalCode;
 
