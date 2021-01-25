@@ -9,9 +9,10 @@
     </div>
     <div class="container">
             <div class="row">
-                <div class="col-md-4 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">Nom : </p>{{app.User.name }}</div>
-                <div class="col-md-4 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">Prénom : </p>{{app.User.firstname }}</div>
-                <div class="col-md-4 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">Email : </p> {{app.User.email }}</div>
+                <div class="col-md-3 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">Nom : </p>{{app.User.name }}</div>
+                <div class="col-md-3 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">Prénom : </p>{{app.User.firstname }}</div>
+                <div class="col-md-3 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">Email : </p> {{app.User.email }}</div>
+                <div class="col-md-3 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">Argent : </p> {{app.User.sold }} €</div>
             </div>
             <div class="row">
                 <div class="col-md-2 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold">N° de l'adresse : </p>{{app.User.localisation.number }}</div>

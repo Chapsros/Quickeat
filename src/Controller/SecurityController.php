@@ -87,11 +87,11 @@ class SecurityController extends AbstractController
 
             $url = $this->generateUrl('app_reset_password', ['token' => $token]);
 
-            $message = (new \Swift_Message('Reniat mdp'))
+            $message = (new \Swift_Message('Rénitialisation du mot de passe'))
                 ->setFrom('admin@admin.com')
                 ->setTo($user->getEmail())
                 ->setBody(
-                    "dsds . $url"
+                    "Cliquer sur ce lien pour rénitialiser ou changer votre mot de passe . $url"
                 )
             ;
 
