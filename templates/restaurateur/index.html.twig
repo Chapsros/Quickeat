@@ -28,8 +28,8 @@
                         <p class="card-text">Catégorie : {{ restaurant.categories }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Adresse : {{ app.User.localisation.address }}</li>
-                        <li class="list-group-item">Ville : {{ app.User.name }}</li>
+                        <li class="list-group-item">Adresse : {{ restaurant.localisation.address }}</li>
+                        <li class="list-group-item">Ville : {{ restaurant.localisation.city }}</li>
                     </ul>
                     <div class="card-body">
                         {% if not restaurant.imageFilename is empty %}

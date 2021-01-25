@@ -21,6 +21,11 @@
                         <a class="nav-link text-dark" href="{{ path('restaurateur')}}">Espace restaurant</a>
                     </li>
                 {% endif %}
+                {% if app.user and app.user.roles.0 == "ROLE_ADMIN" %}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{ path('admin')}}">Espace admin</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="{{ path('account')}}">Mon compte</a>
                 </li>

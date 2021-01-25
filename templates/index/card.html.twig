@@ -1,0 +1,20 @@
+<div class="mt-4 mx-5 d-flex flex-wrap card"><h1>Nos Entrées</h1></div>
+<div class="my-4 mx-5 d-flex flex-wrap justify-content-start">
+{% for entree in entrees %}
+  <div class="card mx-3 my-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://i-reg.unimedias.fr/sites/art-de-vivre/files/styles/recipe/public/pizza-margherita_istock.jpg?auto=compress%2Cformat&crop=faces%2Cedges&cs=srgb&fit=crop&h=500&w=393" alt="..." style="width: 100%;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ entree.name }}</h5>
+          <p class="card-text">{{ entree.type }}</p>
+          <p class="card-text"><small class="text-muted">boutton de commande et fiche du plat / avis</small></p>
+          <a href="{{ path('panier_add', {'id': entree.id}) }}" class="btn btn-primary mr-2"><h5 class="card-title">{{ entree.price }} €</h5>Ajouter au panier</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>

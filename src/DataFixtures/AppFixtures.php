@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Localisation;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -17,6 +18,16 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+
+        $Localisation = new Localisation();
+
+        $Localisation
+            ->setNumber(2)
+            ->setAddress('rue de vichy')
+            ->setPostalCode(69004)
+            ->setCity("lyon")
+            ->setCountry("France")
+            ;
 
         $admin = new User();
 
@@ -48,6 +59,7 @@ class AppFixtures extends Fixture
         $manager->persist($admin);
         $manager->persist($resto);
         $manager->persist($user);
+        $manager->persist($Localisation);
 
         $manager->flush();
     }

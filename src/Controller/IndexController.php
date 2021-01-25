@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use App\Data\SearchData;
+use App\Entity\Restaurant;
 use App\Form\SearchType;
 use App\Repository\PlatRepository;
 use App\Repository\RestaurantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -30,6 +30,27 @@ class IndexController extends AbstractController
         return $this->render('index/index.html.twig', [
             'restaurants' => $restaurants,
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/lerestaurant/{id}", name="lerestaurant")
+     * @param Restaurant $restaurant
+     * @param PlatRepository $platRepository
+     * @return Response
+     */
+    public function restaurant(Restaurant $restaurant, PlatRepository $platRepository)
+    {
+        $entree = $platRepository->findByRestaurant($restaurant, 'Entrée');
+        $plats = $platRepository->findByRestaurant($restaurant, 'plat');
+        $dessert = $platRepository->findByRestaurant($restaurant, 'Dessert');
+        $boisson = $platRepository->findByRestaurant($restaurant, 'Boisson');
+        return $this->render('index/restaurant.html.twig', [
+            'restaurant' => $restaurant,
+            'entrees' => $entree,
+            'plats' => $plats,
+            'desserts' => $dessert,
+            'boissons' => $boisson,
         ]);
     }
 
@@ -86,7 +107,7 @@ class IndexController extends AbstractController
             $id_restaurant = $restaurant->getId();
         }
 
-        return $this->redirect("/restaurant/" . $id_restaurant);
+        return $this->redirect("/lerestaurant/" . $id_restaurant);
     }
 
     /**
