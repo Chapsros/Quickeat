@@ -1,6 +1,6 @@
 # Projet-Web QuickEat (Symfony 4.4)
 
-**Fichier d'instruction (MacOS):**
+#Fichier d'instruction (MacOS):
 
 - Pré-requis (PHP, Composer, MAMP, Symfony)
 
@@ -38,7 +38,7 @@
 
      php bin/console server:run
         
-**Fichier d'instruction (Windows) :**
+#Fichier d'instruction (Windows) :
 
 - Pré-requis (PHP, Composer, WAMP, Symfony)
 
