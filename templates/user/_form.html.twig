@@ -1,8 +1,4 @@
 {{ form_start(form) }}
-
-    <div class="d-flex justify-content-center shadow p-3 mb-5 bg-warning rounded">
-        <h1>Edit User</h1>
-    </div>
     <div class="row">
     {{ form_start(form) }}
     {{ form_row(form._token) }}
@@ -26,6 +22,8 @@
         <div class="col-md-2 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold"></p>{{ form_row(form.localisation.postalCode) }}</div>
         <div class="col-md-2 shadow-sm p-3 mb-5 bg-white rounded"><p class="font-weight-bold"></p>{{ form_row(form.localisation.country) }}</div>
     </div>
-
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="d-flex justify-content-end">
+    <a href="{{ path('user_index') }}" class="btn btn-primary ml-3">Retour</a>
+    <button class="btn btn-success ml-2">{{ button_label|default('Enregistrer') }}</button>
+</div>
 {{ form_end(form) }}

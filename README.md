@@ -22,9 +22,9 @@
       
 	sudo composer self-update
 
--- Installation du package SwiftMailer (Symfony) :
+-- Installation des packags (Symfony) :
 
-    composer require symfony/swiftmailer-bundle
+    composer install
 
 -- Paramétrage SwfitMailer :
  
@@ -40,6 +40,12 @@
         
 **Fichier d'instruction (Windows) :**
 
+- Pré-requis (PHP, Composer, WAMP, Symfony)
+
+- Version PHP 7.4.3
+- Version WAMP 3.2.0
+- Version Composer 2.0.6
+- Version Symfony 4.4
 
 
 

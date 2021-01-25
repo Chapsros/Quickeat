@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Les utilisateurs | QuickEat{% endblock %}
 
 {% block body %}
 <div class="container my-5">
-    <h1>User index</h1>
-
+    <div class="d-flex justify-content-center shadow p-3 my-5 bg-warning rounded">
+        <h1>Les utilisateurs</h1>
+    </div>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Email</th>
-                <th>Roles</th>
-                <th>Name</th>
-                <th>Firstname</th>
-                <th>PhoneNumber</th>
-                <th>ImageFilename</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Numéro de téléphone</th>
+                <th>Rôles</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,24 +24,23 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.phoneNumber }}</td>
-                <td>{{ user.imageFilename }}</td>
+                <td>{{ user.roles ? user.roles | json_encode : '' }}</td>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn-primary">Voir</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}" class=" btn btn-secondary">Modifer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="11">Pas d'infos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('user_new') }}">Create new</a>
+    <a href="{{ path('user_new') }}" class="btn btn-success">Nouveau</a>
 </div>
 {% endblock %}
