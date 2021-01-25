@@ -22,7 +22,7 @@
       
 	sudo composer self-update
 
--- Installation des packags (Symfony) :
+-- Installation des packages avec composer :
 
     composer install
 
@@ -36,7 +36,7 @@
 
 -- Lancement du site depuis votre IDE :
 
-     php bin/console serve:r
+     php bin/console server:run
         
 **Fichier d'instruction (Windows) :**
 
@@ -46,6 +46,26 @@
 - Version WAMP 3.2.0
 - Version Composer 2.0.6
 - Version Symfony 4.4
+
+-- Installation de composer .... :
+
+
+-- Installation des packages avec composer :
+
+    composer install
+    
+-- Paramétrage SwfitMailer :
+     
+- .env --> MAILER_URL=null://localhost
+    
+-- Utilisation de WAMP :
+
+- Lancer WAMP --> Start 
+
+-- Lancement du site depuis votre IDE :
+
+     php bin/console server:run
+
 
 
 
