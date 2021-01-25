@@ -12,12 +12,9 @@
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                {# <th>Password</th> #}
                 <th>Name</th>
                 <th>Firstname</th>
                 <th>PhoneNumber</th>
-                <th>Activation_token</th>
-                <th>Reset_token</th>
                 <th>ImageFilename</th>
                 <th>actions</th>
             </tr>
@@ -28,12 +25,9 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                {# <td>{{ user.password }}</td> #}
                 <td>{{ user.name }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.phoneNumber }}</td>
-                <td>{{ user.activationToken }}</td>
-                <td>{{ user.resetToken }}</td>
                 <td>{{ user.imageFilename }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
