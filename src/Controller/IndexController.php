@@ -126,4 +126,20 @@ class IndexController extends AbstractController
         return $this->redirectToRoute("panier");
     }
 
+    /**
+     * @Route("member/panier/commande/{id}", name="commande")
+     */
+    public function commande($id, SessionInterface $session)
+    {
+        return $this->redirectToRoute("resumecommande");
+    }
+
+    /**
+     * @Route("member/resumecommande/", name="resumecommande")
+     */
+    public function resumecommande($id, SessionInterface $session)
+    {
+        
+    }
+
 }

@@ -25,7 +25,7 @@ class RegistrationController extends AbstractController
      * @param \Swift_Mailer $Mailer
      * @return Response
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $Mailer): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $User = new User();
         $form = $this->createForm(RegisterFormType::class, $User);
