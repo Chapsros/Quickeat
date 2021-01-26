@@ -38,7 +38,7 @@
                         {% if restaurant.imageFilename is empty %}
                             <a href="{{ path('edit_logo', {'id': restaurant.id}) }}" class="btn btn-primary">Ajouter une image</a>
                         {% endif %}
-                        <a href="/plat" class="btn btn-primary mt-3">Gestion des plats</a>
+                        <a href="{{ path('plat_index', {'resto': restaurant.id}) }}" class="btn btn-primary mt-3">Gestion des plats</a>
                 </div>
             </div>
             {% endfor %}

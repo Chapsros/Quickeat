@@ -22,8 +22,8 @@
                 <td>{{ plat.name }}</td>
                 <td>{{ plat.type }}</td>
                 <td>
-                    <a href="{{ path('plat_show', {'id': plat.id}) }}">show</a>
-                    <a href="{{ path('plat_edit', {'id': plat.id}) }}">edit</a>
+                    <a href="{{ path('plat_show', {'id': plat.id, 'resto': resto}) }}">show</a>
+                    <a href="{{ path('plat_edit', {'id': plat.id, 'resto': resto}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -34,6 +34,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('plat_new') }}">Create new</a>
+    <a href="{{ path('plat_new', {'resto': resto}) }}">Create new</a>
     </div>
 {% endblock %}

@@ -24,6 +24,7 @@ class PlatType extends AbstractType
                     'Boisson' => 'Boisson',                
                 ]
             ])
+            ->add('price')
         ;
     }
 

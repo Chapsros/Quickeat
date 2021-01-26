@@ -61,4 +61,14 @@ class RestaurantRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+    public function findById($value)
+    {
+        $query = $this
+            ->createQueryBuilder('restaurant')
+            ->Where('restaurant.id = :value')
+            ->setParameter('value', $value);
+
+        return $query->getQuery()->getResult();
+    }
 }

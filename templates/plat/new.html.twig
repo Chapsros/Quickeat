@@ -8,6 +8,6 @@
 
     {{ include('plat/_form.html.twig') }}
 
-    <a href="{{ path('plat_index') }}">back to list</a>
+    <a href="{{ path('plat_index', {'resto': resto}) }}">back to list</a>
     </div>
 {% endblock %}
