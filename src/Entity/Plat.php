@@ -35,6 +35,12 @@ class Plat
     private $Restaurant;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageFilename;
+
+
+    /**
      * @ORM\Column(type="float")
      */
     private $price;
@@ -92,6 +98,24 @@ class Plat
     {
         $this->price = $price;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFilename()
+    {
+        return $this->imageFilename;
+    }
+
+    /**
+     * @param mixed $imageFilename
+     * @return Plat
+     */
+    public function setImageFilename($imageFilename)
+    {
+        $this->imageFilename = $imageFilename;
         return $this;
     }
 }

@@ -3,8 +3,6 @@
 {% block title %}Accueil | QuickEat{% endblock %}
 
 {% block body %}
-
-
     <section>
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
@@ -59,11 +57,8 @@
         <h1>Nos restaurants</h1>
     </div>
     </div>
-    
 <div class="container my-5 d-flex flex-wrap justify-content-center">
 <div class="container d-flex flex-wrap justify-content-start">
-
-
 {% for restaurant in restaurants %}
     <div class="card mx-3 my-3" style="width: 21rem;">
         {% if not restaurant.imageFilename is empty %}

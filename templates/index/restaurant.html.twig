@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{restaurant.name}}{% endblock %}
+{% block title %}{{restaurant.name}} | QuickEat{% endblock %}
 
 {% block body %}
 
-{# <div class="container"> #}
 <section>
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
@@ -29,11 +28,17 @@
         </div>
     </section>
 
-<div class="my-4 d-flex justify-content-center"><h1>Bienvenue chez {{ restaurant.name }}</h1></div>
-
+    <div class="d-flex justify-content-center shadow p-3 bg-warning rounded">
+        <h1>Bienvenu chez {{restaurant.name}}</h1>
+    </div>
+<div class="container my-5 d-flex flex-wrap justify-content-center">
 {% if (entrees != []) %}
-<div class="mt-4 mx-5 d-flex flex-wrap card"><h1>Nos Entrées</h1></div>
-<div class="my-4 mx-5 d-flex flex-wrap justify-content-start">
+<div class="container">
+    <div class="d-flex justify-content-center shadow-sm p-2 my-5 bg-warning rounded">
+        <h2>Nos entrées</h2>
+    </div>
+</div>
+<div class="my-4 mx-5 d-flex flex-wrap justify-content-center">
 {% for plat in entrees %}
   {{ include('index/card.html.twig', { plat: plat }) }}
 {% endfor %}
@@ -42,8 +47,12 @@
 
 
 {% if (plats != []) %}
-<div class="mt-4 mx-5 d-flex flex-wrap card"><h1>Nos plats</h1></div>
-<div class="my-4 mx-5 d-flex flex-wrap justify-content-start">
+<div class="container">
+    <div class="d-flex justify-content-center shadow-sm p-2 my-5 bg-warning rounded">
+        <h2>Nos plats</h2>
+    </div>
+</div>
+<div class="my-4 mx-5 d-flex flex-wrap justify-content-center">
 {% for plat in plats %}
   {{ include('index/card.html.twig', { plat: plat }) }}
 {% endfor %}
@@ -51,8 +60,12 @@
 {% endif %}
 
 {% if (desserts != []) %}
-<div class="mt-4 mx-5 d-flex flex-wrap card"><h1>Nos Desserts</h1></div>
-<div class="my-4 mx-5 d-flex flex-wrap justify-content-start">
+<div class="container">
+    <div class="d-flex justify-content-center shadow-sm p-2 my-5 bg-warning rounded">
+        <h2>Nos desserts</h2>
+    </div>
+</div>
+<div class="my-4 mx-5 d-flex flex-wrap justify-content-center">
 {% for plat in desserts %}
   {{ include('index/card.html.twig', { plat: plat }) }}
 {% endfor %}
@@ -61,13 +74,15 @@
 
 
 {% if (boissons != []) %}
-<div class="mt-4 mx-5 d-flex flex-wrap card"><h1>Nos boissons</h1></div>
-<div class="my-4 mx-5 d-flex flex-wrap justify-content-start">
+<div class="container">
+    <div class="d-flex justify-content-center shadow-sm p-2 my-5 bg-warning rounded">
+        <h2>Nos boissons</h2>
+    </div>
+</div>
+<div class="my-4 mx-5 d-flex flex-wrap justify-content-center">
 {% for plat in boissons %}
   {{ include('index/card.html.twig', { plat: plat }) }}
 {% endfor %}
 </div>
 {% endif %}
-
-
 {% endblock %}
