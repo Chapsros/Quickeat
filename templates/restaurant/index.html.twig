@@ -13,7 +13,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Categories</th>
+                <th>Catégories</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -35,6 +35,7 @@
         {% endfor %}
         </tbody>
     </table>
+    <a href="{{ path('admin') }}" class="btn btn-primary">Retour</a>
     <a href="{{ path('restaurant_new') }}" class="btn btn-success">Nouveau</a>
 </div>
 {% endblock %}
