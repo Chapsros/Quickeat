@@ -12,6 +12,9 @@ class AdminController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin")
+     * @param RestaurantRepository $restaurantRepository
+     * @param CommandeRepository $commandeRepository
+     * @return Response
      */
     public function index(RestaurantRepository $restaurantRepository, CommandeRepository $commandeRepository): Response
     {

@@ -17,6 +17,8 @@ class RestaurantController extends AbstractController
 {
     /**
      * @Route("/", name="restaurant_index", methods={"GET"})
+     * @param RestaurantRepository $restaurantRepository
+     * @return Response
      */
     public function index(RestaurantRepository $restaurantRepository): Response
     {
@@ -27,6 +29,8 @@ class RestaurantController extends AbstractController
 
     /**
      * @Route("/new", name="restaurant_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -60,6 +64,9 @@ class RestaurantController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="restaurant_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Restaurant $restaurant
+     * @return Response
      */
     public function edit(Request $request, Restaurant $restaurant): Response
     {
@@ -80,6 +87,9 @@ class RestaurantController extends AbstractController
 
     /**
      * @Route("/{id}", name="restaurant_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Restaurant $restaurant
+     * @return Response
      */
     public function delete(Request $request, Restaurant $restaurant): Response
     {

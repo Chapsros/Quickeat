@@ -17,7 +17,7 @@
             {% for restaurant in restaurants %}
             <div class="card m-4" style="width: 20em">
                 {% if not restaurant.imageFilename is empty %}
-                    <img class="card-img-top" src="{{ asset('uploads/users_logo/' ~ restaurant.imageFilename) | imagine_filter('thumb')}}" alt="Image restaurant">
+                    <img class="card-img-top" src="{{ asset('uploads/resto_logo/' ~ restaurant.imageFilename) | imagine_filter('thumb')}}" alt="Image restaurant">
                 {% endif %}
                 {% if restaurant.imageFilename is empty %}
                     <img class="card-img-top" src="{{ asset('noimg/image.jpg') | imagine_filter('thumb')}}" alt="Card image cap">

@@ -25,7 +25,6 @@ class PlatType extends AbstractType
             ])
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    'Type' => '',
                     'Entrée' => 'Entrée',
                     'Plat' => 'Plat',
                     'Dessert' => 'Dessert',

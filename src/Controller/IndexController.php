@@ -8,7 +8,9 @@ use App\Form\SearchType;
 use App\Repository\PlatRepository;
 use App\Repository\RestaurantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -56,6 +58,9 @@ class IndexController extends AbstractController
 
     /**
      * @Route("member/panier", name="panier")
+     * @param SessionInterface $session
+     * @param PlatRepository $platRepository
+     * @return Response
      */
     public function panier(SessionInterface $session, PlatRepository $platRepository)
     {
@@ -88,6 +93,10 @@ class IndexController extends AbstractController
 
     /**
      * @Route("member/panier/add/{id}", name="panier_add")
+     * @param $id
+     * @param SessionInterface $session
+     * @param PlatRepository $platRepository
+     * @return RedirectResponse
      */
     public function add($id, SessionInterface $session, PlatRepository $platRepository)
     {
@@ -112,6 +121,9 @@ class IndexController extends AbstractController
 
     /**
      * @Route("member/panier/remove/{id}", name="panier_remove")
+     * @param $id
+     * @param SessionInterface $session
+     * @return RedirectResponse
      */
     public function remove($id, SessionInterface $session)
     {

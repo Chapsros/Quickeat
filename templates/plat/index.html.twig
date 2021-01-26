@@ -1,18 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Plat index{% endblock %}
+{% block title %}Liste des plats | QuickEat{% endblock %}
 
 {% block body %}
 <div class="container my-5">
-    <h1>Plat index</h1>
+    <div class="d-flex justify-content-center shadow p-3 mb-5 bg-warning rounded">
+        <h1>Liste des plats</h1>
+    </div>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Type</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,18 +24,18 @@
                 <td>{{ plat.name }}</td>
                 <td>{{ plat.type }}</td>
                 <td>
-                    <a href="{{ path('plat_show', {'id': plat.id, 'resto': resto}) }}">show</a>
-                    <a href="{{ path('plat_edit', {'id': plat.id, 'resto': resto}) }}">edit</a>
+                    <a href="{{ path('plat_show', {'id': plat.id, 'resto': resto}) }}" class="btn btn-primary">Voir</a>
+                    <a href="{{ path('plat_edit', {'id': plat.id, 'resto': resto}) }}" class="btn btn-secondary">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Pas d'infos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('plat_new', {'resto': resto}) }}">Create new</a>
+    <a href="{{ path('plat_new', {'resto': resto}) }}" class="btn btn-success">Nouveau</a>
     </div>
 {% endblock %}

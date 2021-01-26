@@ -25,6 +25,7 @@ class UploadFileRestaurantType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Plat::class,
+            "allow_extra_fields" => true
         ]);
     }
 }

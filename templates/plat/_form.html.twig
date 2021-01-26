@@ -1,6 +1,7 @@
 <div class="container my-5">
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <a href="{{ path('plat_index', {'resto': resto}) }}" class="btn btn-primary">Retour</a>
+    <button class="btn btn-success">{{ button_label|default('Enregistrer')}}</button>
 {{ form_end(form) }}
 </div>
