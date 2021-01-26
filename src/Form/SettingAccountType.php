@@ -9,6 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class SettingAccountType extends AbstractType
 {
@@ -17,7 +19,11 @@ class SettingAccountType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('phoneNumber', NumberType::class, [
-                'label' => 'Numéro de téléphone'
+                'label' => 'Numéro de téléphone',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['min' => 10, 'max' => 10]),
+                ],
             ])
             ->add('localisation', LocalisationType::class)
             ->add('imageFile', FileType::class, [
