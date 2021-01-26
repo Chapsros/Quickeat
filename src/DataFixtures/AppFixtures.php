@@ -80,18 +80,18 @@ class AppFixtures extends Fixture
         // ---------- restaurant ---------------
 
 
-        $Localisation4 = new Localisation();
-        $Localisation4
-            ->setNumber(2)
-            ->setAddress('rue de vichy')
-            ->setPostalCode(69004)
-            ->setCity("lyon")
-            ->setCountry("France")
-            ;
-        $restaurant1 = New Restaurant();
-        $restaurant1
-            ->setLocalisation($Localisation4)
-            ->setName("")
+        // $Localisation4 = new Localisation();
+        // $Localisation4
+        //     ->setNumber(2)
+        //     ->setAddress('rue de vichy')
+        //     ->setPostalCode(69004)
+        //     ->setCity("lyon")
+        //     ->setCountry("France")
+        //     ;
+        // $restaurant1 = New Restaurant();
+        // $restaurant1
+        //     ->setLocalisation($Localisation4)
+        //     ->setName("");
 
 
 
@@ -100,7 +100,7 @@ class AppFixtures extends Fixture
         $manager->persist($Localisation);
         $manager->persist($Localisation2);
         $manager->persist($Localisation3);
-        $manager->persist($Localisation4);
+        // $manager->persist($Localisation4);
         $manager->persist($admin);
         $manager->persist($resto);
         $manager->persist($user);
