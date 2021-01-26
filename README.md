@@ -1,6 +1,6 @@
 # Projet-Web QuickEat (Symfony 4.4)
 
-**Fichier d'instruction (MacOS):**
+# Fichier d'instruction (MacOS):
 
 - Pré-requis (PHP, Composer, MAMP, Symfony)
 
@@ -22,9 +22,9 @@
       
 	sudo composer self-update
 
--- Installation du package SwiftMailer (Symfony) :
+-- Installation des packages avec composer :
 
-    composer require symfony/swiftmailer-bundle
+    composer install
 
 -- Paramétrage SwfitMailer :
  
@@ -36,9 +36,35 @@
 
 -- Lancement du site depuis votre IDE :
 
-     php bin/console serve:r
+     php bin/console server:run
         
-**Fichier d'instruction (Windows) :**
+# Fichier d'instruction (Windows) :
+
+- Pré-requis (PHP, Composer, WAMP, Symfony)
+
+- Version PHP 7.4.3
+- Version WAMP 3.2.0
+- Version Composer 2.0.6
+- Version Symfony 4.4
+
+-- Installation de composer .... :
+
+
+-- Installation des packages avec composer :
+
+    composer install
+    
+-- Paramétrage SwfitMailer :
+     
+- .env --> MAILER_URL=null://localhost
+    
+-- Utilisation de WAMP :
+
+- Lancer WAMP --> Start 
+
+-- Lancement du site depuis votre IDE :
+
+     php bin/console server:run
 
 
 
