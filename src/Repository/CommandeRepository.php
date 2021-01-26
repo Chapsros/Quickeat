@@ -31,17 +31,4 @@ class CommandeRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
-    
-
-    /*
-    public function findOneBySomeField($value): ?Commande
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
