@@ -19,6 +19,7 @@ class RestaurantType extends AbstractType
                 'label' => 'Nom'
             ])
             ->add('categories', ChoiceType::class, [
+                'label' => 'Catégories',
                 'choices' => [
                     'Fast Food' => 'Fast food',
                     'Pizzeria' => 'Pizzeria',
