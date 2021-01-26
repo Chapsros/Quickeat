@@ -17,7 +17,6 @@ class RestaurantType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom'
-
             ])
             ->add('categories', ChoiceType::class, [
                 'choices' => [

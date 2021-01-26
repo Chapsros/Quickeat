@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 
 class RegisterFormType extends AbstractType
@@ -21,16 +23,32 @@ class RegisterFormType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe'
+                'label' => 'Mot de passe',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['min' => 5, 'max' => 50]),
+                ],
             ])
             ->add('name', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['min' => 3]),
+                ],
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['min' => 3]),
+                ],
             ])
             ->add('phoneNumber', NumberType::class, [
-                'label' => 'Numéro de téléphone'
+                'label' => 'Numéro de téléphone',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['min' => 10, 'max' => 10]),
+                ],
             ])
             ->add('sold', HiddenType::class)
             ->add('localisation', LocalisationType::class)

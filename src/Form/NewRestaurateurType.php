@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class NewRestaurateurType extends AbstractType
 {
@@ -19,8 +21,11 @@ class NewRestaurateurType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom'
-
+                'label' => 'Nom',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['min' => 2, 'max' => 50]),
+                ],
             ])
             ->add('categories', ChoiceType::class, [
                 'choices' => [
