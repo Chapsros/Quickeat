@@ -66,12 +66,6 @@ class User implements UserInterface
      */
     private $phoneNumber;
 
-
-    /**
-     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="User")
-     */
-    private $Commandes;
-
     /**
      * @ORM\OneToOne(targetEntity=Localisation::class, cascade={"persist", "remove"})
      */
@@ -122,7 +116,6 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->Commandes = new ArrayCollection();
         $this->restaurants = new ArrayCollection();
     }
 
@@ -164,35 +157,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Commande[]
-     */
-    public function getCommandes(): Collection
-    {
-        return $this->Commandes;
-    }
-
-    public function addCommande(Commande $Commande): self
-    {
-        if (!$this->Commandes->contains($Commande)) {
-            $this->Commandes[] = $Commande;
-            $Commande->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommande(Commande $Commande): self
-    {
-        if ($this->Commandes->removeElement($Commande)) {
-            // set the owning side to null (unless already changed)
-            if ($Commande->getUser() === $this) {
-                $Commande->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getLocalisation(): ?Localisation
     {

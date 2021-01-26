@@ -30,11 +30,6 @@ class Plat
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Commande::class, inversedBy="plats")
-     */
-    private $Commande;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Restaurant::class, inversedBy="plats")
      */
     private $Restaurant;
@@ -74,17 +69,6 @@ class Plat
         return $this;
     }
 
-    public function getCommande(): ?Commande
-    {
-        return $this->Commande;
-    }
-
-    public function setCommande(?Commande $Commande): self
-    {
-        $this->Commande = $Commande;
-
-        return $this;
-    }
 
     public function getRestaurant(): ?Restaurant
     {

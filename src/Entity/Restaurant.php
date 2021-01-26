@@ -30,11 +30,6 @@ class Restaurant
     private $categories;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="Restaurant")
-     */
-    private $Commandes;
-
-    /**
      * @ORM\OneToMany(targetEntity=Plat::class, mappedBy="Restaurant")
      */
     private $plats;
@@ -56,7 +51,6 @@ class Restaurant
 
     public function __construct()
     {
-        $this->Commandes = new ArrayCollection();
         $this->plats = new ArrayCollection();
     }
 
@@ -89,35 +83,6 @@ class Restaurant
         return $this;
     }
 
-    /**
-     * @return Collection|Commande[]
-     */
-    public function getCommandes(): Collection
-    {
-        return $this->Commandes;
-    }
-
-    public function addCommande(Commande $Commande): self
-    {
-        if (!$this->Commandes->contains($Commande)) {
-            $this->Commandes[] = $Commande;
-            $Commande->setRestaurant($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommande(Commande $Commande): self
-    {
-        if ($this->Commandes->removeElement($Commande)) {
-            // set the owning side to null (unless already changed)
-            if ($Commande->getRestaurant() === $this) {
-                $Commande->setRestaurant(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Plat[]
