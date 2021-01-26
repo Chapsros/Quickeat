@@ -110,7 +110,9 @@ class PlatController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('plat_index', [
+                'resto' => $resto
+            ]);
         }
 
         return $this->render('plat/edit.html.twig', [
