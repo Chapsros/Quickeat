@@ -49,6 +49,7 @@
 
 -- Installation de composer .... :
 
+    https://getcomposer.org/
 
 -- Installation des packages avec composer :
 
