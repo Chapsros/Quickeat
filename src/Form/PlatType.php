@@ -6,6 +6,7 @@ use App\Entity\Plat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,6 +19,7 @@ class PlatType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
+            'label' => 'Nom',
             'constraints' => [
                 new NotBlank(),
                 new Length(['min' => 2, 'max' => 42]),
@@ -35,7 +37,9 @@ class PlatType extends AbstractType
                 'label' => 'Image',
                 'mapped' => false
             ])
-            ->add('price')
+            ->add('price', NumberType::class, [
+                'label' => 'Prix'
+            ])
         ;
     }
 
