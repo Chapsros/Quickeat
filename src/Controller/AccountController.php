@@ -37,7 +37,7 @@ class AccountController extends AbstractController
      * @param User $register
      * @return Response
      */
-    public function edit(Request $request, User $register): Response
+    public function edit(Request $request, User $register, $id): Response
     {
         $form = $this->createForm(SettingAccountType::class, $register);
         $form->handleRequest($request);
@@ -45,7 +45,7 @@ class AccountController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirect('/account');
+            return $this->redirectToRoute('account');
         }
 
         return $this->render('account/settings_account.html.twig', [

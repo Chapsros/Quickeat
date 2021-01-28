@@ -49,12 +49,12 @@ class SecurityController extends AbstractController
      * @Route("/oubli-pass", name="app_forgotten_password")
      * @param Request $request
      * @param UserRepository $userRepository
-     * @param Swift_Mailer $mailer
      * @param TokenGeneratorInterface $tokenGenerator
+     * @param Swift_Mailer $mailer
      * @return Response
      */
     public function forgottenPass(Request $request, UserRepository $userRepository,
-        TokenGeneratorInterface $tokenGenerator){
+        TokenGeneratorInterface $tokenGenerator, \Swift_Mailer $mailer){
 
         $form = $this->createForm(ResetPassType::class);
 
@@ -91,7 +91,7 @@ class SecurityController extends AbstractController
                 ->setFrom('admin@admin.com')
                 ->setTo($user->getEmail())
                 ->setBody(
-                    "Cliquer sur ce lien pour rénitialiser ou changer votre mot de passe . $url"
+                    "Cliquer sur ce lien pour rénitialiser ou changer votre mot de passe $url"
                 )
             ;
 
